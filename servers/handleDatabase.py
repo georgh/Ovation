@@ -15,6 +15,8 @@ def getFirstFree():
 
 class Restriction():
 
+      day,hour,weekday, noMorning, noAfternoon
+
       def __init__(self, day=None, weekday=None, hour=None):
             # I can only monday 
             # -> restrict on all days beside monday (multiple calls?)

@@ -3,6 +3,13 @@
 timeslots = []
 restrictions = []
 
+def queryScores():
+    pass
+
+
+
+
+
 
 
 
