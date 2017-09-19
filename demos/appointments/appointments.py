@@ -3,7 +3,7 @@
 
 
 import audio
-import logic
+from logic import logic
 from understanding import understand
 
 def act(transcription):
