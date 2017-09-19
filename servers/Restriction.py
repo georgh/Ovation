@@ -25,7 +25,6 @@ def apply(day=None, weekday=None, hour=None):
           
       removeitems = []
       for tsl in db.timeslots:
-            
             for w in weekday:
                   for d in day:
                         for h in hour:

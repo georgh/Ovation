@@ -1,5 +1,4 @@
-import handleDatabase as db
-import timeslots as backend
+import timeslots as db
 import datetime as dt
 import Restriction
 
@@ -20,7 +19,7 @@ d = d.replace(day=23, hour=12)
 db.addTimeSlot(d)
 
 print("Database initialized! entries are now:")
-for b in backend.timeslots:
+for b in db.timeslots:
       print("{} weekday: {}".format(b, b.weekday()))
 
 
@@ -47,5 +46,5 @@ Restriction.apply(weekday=1, hour=(12,20))
 print("First free: " + str(db.getFirstFree()))
 
 print("Final Databse entries are:")
-for b in backend.timeslots:
+for b in db.timeslots:
       print("{} weekday: {}".format(b, b.weekday()))
