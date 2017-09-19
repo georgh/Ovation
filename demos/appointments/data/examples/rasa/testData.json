@@ -1,0 +1,151 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "Bye Bye",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "Good Bye",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "Thanks, Good Bye",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "See You",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "Great, See you",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "It is Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "That is Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "This is Okay for me",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "That's Fine",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "That suit's me well",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "This is is acceptable",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "I am Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "Perfect",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "Agreed",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "No",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Nope",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "not okay",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Oh no",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "That does not work for me",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "This is not Possible for me",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "No chance",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "No way",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Not Possible",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Not Good",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Do you have something else",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Any other possiblility?",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "That would be complicated",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "I cannot manage that",
+        "intent": "Reject",
+        "entities": []
+      }
+    ]
+  }
+}
