@@ -19,14 +19,17 @@ def response(json):
         pass
         # TODO : clear state and prepare for new user
 
-    if len(json.intent_ranking) == 0:
+    intent_ranking=json['intent_ranking']
+
+    if len(intent_ranking) == 0:
         return ResultObject("Sorry, I did not quite understand what you said...", SessionState.CONTINUE)
 
-    if json.intent_ranking[0].name == "affirm":
+    name = intent_ranking[0]['name']
+    if name  == "affirm":
         return ResultObject("You can come, your appointment is booked", SessionState.DONE)
 
-    if json.intent_ranking[0].name == "reject":
+    if name == "reject":
         return ResultObject("BotQuestion", SessionState.CONTINUE)
 
-    if json.intent_ranking[0].name == "goodbye":
+    if name == "goodbye":
         return ResultObject("Goodbye and see you soon!", SessionState.DONE)

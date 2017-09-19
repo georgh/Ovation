@@ -9,3 +9,4 @@ interpreter = Interpreter.load(metadata, config )
 def understand(sentence):
   result = interpreter.parse(sentence)
   print(result)
+  return result
