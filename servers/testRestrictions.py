@@ -1,6 +1,6 @@
-import handleDatabase as db
-import database as backend
+import timeslots as db
 import datetime as dt
+import Restriction
 
 
 #adding values to database:
@@ -18,34 +18,33 @@ db.addTimeSlot(d)
 d = d.replace(day=23, hour=12)
 db.addTimeSlot(d)
 
-print("Database initialized entries are now:")
-for b in backend.timeslots:
+print("Database initialized! entries are now:")
+for b in db.timeslots:
       print("{} weekday: {}".format(b, b.weekday()))
 
 
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing Wednesday:")
-r=db.Restriction(weekday=2)
-r.apply()
+Restriction.apply(weekday=2)
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing before 10:")
-r=db.Restriction()
-r.hourRange(0,10)
-r.apply()
+Restriction.apply(hour=(0,10))
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing the 26th:")
-r=db.Restriction(day=26)
-r.apply()
+Restriction.apply(day=26)
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing the 24 and 25:")
-r=db.Restriction(day=[24,25])
-r.apply()
+Restriction.apply(day=[24,25])
+print("First free: " + str(db.getFirstFree()))
+
+print("Testing combined restrictions: Hour between 12 and 20 weekday Tuesday ")
+Restriction.apply(weekday=1, hour=(12,20))
 print("First free: " + str(db.getFirstFree()))
 
 print("Final Databse entries are:")
-for b in backend.timeslots:
+for b in db.timeslots:
       print("{} weekday: {}".format(b, b.weekday()))
