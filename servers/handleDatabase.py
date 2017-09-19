@@ -1,4 +1,3 @@
-import datetime
 import database as db
 
 def addTimeSlot(slot):

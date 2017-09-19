@@ -1,6 +1,6 @@
+# timeslotsInital = []
 
 timeslots = []
-# timeslotsInital = []
 restrictions = []
 
 
