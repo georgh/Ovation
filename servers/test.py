@@ -1,14 +1,51 @@
 import handleDatabase as db
-import datetime
+import database as backend
+import datetime as dt
 
-d = datetime.datetime(2017,6,5,15)
-db.addTimeSlot(d)
-d = datetime.datetime(2017,6,9,11)
-db.addTimeSlot(d)
-print(db.getFirstFree())
 
-r=db.Restriction(weekday=1)
+#adding values to database:
+d = dt.datetime(2017, 9, 1)
+d = d.replace(day=19, hour=9) #tuesday
+db.addTimeSlot(d)
+d = d.replace(day=19, hour=19)
+db.addTimeSlot(d)
+d = d.replace(day=26, hour=12)
+db.addTimeSlot(d)
+d = d.replace(day=24, hour=12)
+db.addTimeSlot(d)
+d = d.replace(day=24, hour=13)
+db.addTimeSlot(d)
+d = d.replace(day=23, hour=12)
+db.addTimeSlot(d)
+
+print("Database initialized entries are now:")
+for b in backend.timeslots:
+      print("{} weekday: {}".format(b, b.weekday()))
+
+
+print("First free: " + str(db.getFirstFree()))
+
+print("Removing Wednesday:")
+r=db.Restriction(weekday=2)
 r.apply()
-print(db.getFirstFree())
+print("First free: " + str(db.getFirstFree()))
 
+print("Removing before 10:")
+r=db.Restriction()
+r.hourRange(0,10)
+r.apply()
+print("First free: " + str(db.getFirstFree()))
 
+print("Removing the 26th:")
+r=db.Restriction(day=26)
+r.apply()
+print("First free: " + str(db.getFirstFree()))
+
+print("Removing the 24 and 25:")
+r=db.Restriction(day=[24,25])
+r.apply()
+print("First free: " + str(db.getFirstFree()))
+
+print("Final Databse entries are:")
+for b in backend.timeslots:
+      print("{} weekday: {}".format(b, b.weekday()))
