@@ -1,0 +1,9 @@
+
+timeslots = []
+# timeslotsInital = []
+restrictions = []
+
+
+
+
+
