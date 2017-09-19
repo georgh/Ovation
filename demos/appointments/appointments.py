@@ -208,11 +208,11 @@ if __name__ == "__main__":
     init_threshold()
 
     while True:
-        print("0")
+        print("Listening for keyword 'Appointment")
         passive_listen()
-        print("A")
+        print("Listening for commands")
         transcription = active_listen()
-        print("B")
+        print("Commands received")
         if transcription:
             act(transcription)
 

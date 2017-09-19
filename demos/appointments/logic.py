@@ -1,5 +1,5 @@
 
 def response(text):
-    print ("Got ", text)
+    print ("Interprete ", text)
     return "You can come now"
     
