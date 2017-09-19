@@ -1,0 +1,19 @@
+{
+  "name": "appointments",
+  "version": "1.0.0",
+  "description": "The Appointment Chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mindgarage/Ovation.git"
+  },
+  "author": "Team Darko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mindgarage/Ovation/issues"
+  },
+  "homepage": "https://github.com/mindgarage/Ovation#readme"
+}

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+cd $(dirname $0)/..
+BACKEND=$(cat config/BACKEND)
+python -m rasa_nlu.server -c config/config_$BACKEND.json
