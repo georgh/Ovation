@@ -42,6 +42,10 @@ print("Removing the 24 and 25:")
 Restriction.apply(day=[24,25])
 print("First free: " + str(db.getFirstFree()))
 
+print("Testing combined restrictions: Hour between 12 and 20 weekday Tuesday ")
+Restriction.apply(weekday=1, hour=(12,20))
+print("First free: " + str(db.getFirstFree()))
+
 print("Final Databse entries are:")
 for b in backend.timeslots:
       print("{} weekday: {}".format(b, b.weekday()))
