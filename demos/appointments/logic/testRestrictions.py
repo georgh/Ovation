@@ -1,7 +1,7 @@
-import timeslots as db
 import datetime as dt
-import Restriction
 
+import database as db
+import restriction
 
 #adding values to database:
 d = dt.datetime(2017, 9, 1)
@@ -26,23 +26,23 @@ for b in db.timeslots:
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing Wednesday:")
-Restriction.apply(weekday=2)
+restriction.apply(weekday=2)
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing before 10:")
-Restriction.apply(hour=(0,10))
+restriction.apply(hour=(0, 10))
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing the 26th:")
-Restriction.apply(day=26)
+restriction.apply(day=26)
 print("First free: " + str(db.getFirstFree()))
 
 print("Removing the 24 and 25:")
-Restriction.apply(day=[24,25])
+restriction.apply(day=[24, 25])
 print("First free: " + str(db.getFirstFree()))
 
 print("Testing combined restrictions: Hour between 12 and 20 weekday Tuesday ")
-Restriction.apply(weekday=1, hour=(12,20))
+restriction.apply(weekday=1, hour=(12, 20))
 print("First free: " + str(db.getFirstFree()))
 
 print("Final Databse entries are:")
