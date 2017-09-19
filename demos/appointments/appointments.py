@@ -9,8 +9,7 @@ from understanding import understand
 def act(transcription):
     for alt in transcription:        
         print(alt)
-        understand(alt)
-        answer = logic.response(alt)
+        answer = logic.response(understand(alt))
         audio.say(answer.text)
         return answer.session_state
 

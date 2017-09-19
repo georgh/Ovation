@@ -1,7 +1,4 @@
-import json
-
 from enum import Enum
-
 
 class SessionState(Enum):
     DONE = 0
@@ -14,22 +11,22 @@ class ResultObject:
         self.session_state = session_state
 
 
-def response(text):
-    print("Interprete ", text)
-    return ResultObject("You can come now", SessionState.DONE)
+# The input is a json object returned by RASA
+def response(json):
+    print("Interprete ", json)
 
+    if json is None:
+        pass
+        # TODO : clear state and prepare for new user
 
-# The input string would be the Json (one or more we still have to define) returned
-# by RASA
+    if len(json.intent_ranking) == 0:
+        return ResultObject("Sorry, I did not quite understand what you said...", SessionState.CONTINUE)
 
-# TODO add input parameter
-# TODO add switch-case logic for the cases intent=accept, reject, exit
-def processUserInput():
-    from pprint import pprint
-    
-    with open('data.json') as data_file:
-        data = json.load(data_file)
-    
-    pprint(data)
+    if json.intent_ranking[0].name == "affirm":
+        return ResultObject("You can come, your appointment is booked", SessionState.DONE)
 
-processUserInput()
+    if json.intent_ranking[0].name == "reject":
+        return ResultObject("BotQuestion", SessionState.CONTINUE)
+
+    if json.intent_ranking[0].name == "goodbye":
+        return ResultObject("Goodbye and see you soon!", SessionState.DONE)
