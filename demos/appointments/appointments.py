@@ -4,10 +4,12 @@
 
 import audio
 import logic
+from understanding import understand
 
 def act(transcription):
     for alt in transcription:        
         print(alt)
+        understand(alt)
         answer = logic.response(alt)
         audio.say(answer.text)
         return answer.session_state
