@@ -19,7 +19,7 @@ import os
 import time
 from pydub import AudioSegment
 
-import logic
+
 
 threshold = 2.0 ** 16
 volume_normalization = 0.5
@@ -189,18 +189,6 @@ def active_listen():
         return transcribe(f)
 
 
-def act(transcription):
-    for alt in transcription:        
-#        if u"test" in alt:
-#            print("test")
-#            url = u"http://"
-#            response = urllib.urlopen(url)
-#            say(response)
-#            break
-        print(transcription)
-        answer = logic.response(transcription)
-        say(answer)
-        break
 
 
 
@@ -208,11 +196,8 @@ if __name__ == "__main__":
     init_threshold()
 
     while True:
-        print("0")
         passive_listen()
-        print("A")
         transcription = active_listen()
-        print("B")
         if transcription:
             act(transcription)
 
