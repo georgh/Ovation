@@ -12,9 +12,30 @@ def getFirstFree():
 
 class Restriction():
 
-      def __init__():
-            pass
+      def __init__(self, day=None, weekday=None, hour=None):
+            # I can only monday 
+            # -> restrict on all days beside monday (multiple calls)
+            # I cannot this monday (but next is fine)
+            # -> restriction on ?
+            # I
+            self.day = day
+            self.hour = hour
+            self.weekday = weekday                 
 
-      def applyRestriction(restriction):
+
+      def apply(self):
             #filter timeslots accordingly
-            db.timeslots
+            #
+            removeitems = []
+            for sl in db.timeslots:
+                  if self.day != None:
+                        if sl.weekday() == self.weekday:
+                              removeitems += [sl]
+                  if self.day != None:
+                        if sl.day == self.day:
+                              removeitems += [sl]
+
+            print("Removing: {}".format(removeitems))
+            db.timeslots = [sl for sl in db.timeslots if sl not in removeitems] 
+
+

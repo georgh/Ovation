@@ -9,5 +9,8 @@ d = datetime.datetime(2017,6,9,11)
 db.addTimeSlot(d)
 print(db.getFirstFree())
 
+r=db.Restriction(weekday=1)
+r.apply()
+print(db.getFirstFree())
 
 
