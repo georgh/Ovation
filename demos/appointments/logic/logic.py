@@ -1,5 +1,6 @@
 from enum import Enum
 
+import database as db
 import questionAnswer as qa
 
 
@@ -18,25 +19,34 @@ class ResultObject:
 def response(json):
     print("Interprete ", json)
 
+    # Session terminated and a we prepare a new fresh state for a new user
     if json is None:
         qa.clear()
-        pass
-        # TODO : prepare for new user (load a fresh list!)
+        db.clear()
+        db.loadFromFile()
+
 
     intent_ranking = json['intent_ranking']
 
+    # RASA failed to understand the message
     if len(intent_ranking) == 0:
         return ResultObject("Sorry, I did not quite understand what you said...", SessionState.CONTINUE)
 
     name = intent_ranking[0]['name']
+
+    # User is greeting the bot
     if name == "greet":
         return ResultObject(qa.nextQuestion(), SessionState.CONTINUE)
 
+    # User is accepting the proposed appointment
     if name  == "affirm":
+        # TODO remove from the list of calendar the now boooked appointment
         return ResultObject("You can come, your appointment is booked", SessionState.DONE)
 
+    # User directly rejected the proposed appointment
     if name == "reject":
         return ResultObject("BotQuestion", SessionState.CONTINUE)
 
+    # Just because we are nice, we greet goodbye to user after an agreement is reached
     if name == "goodbye":
         return ResultObject("Goodbye and see you soon!", SessionState.DONE)

@@ -9,13 +9,13 @@ and the last questions asked (so that we do not repeat them)
 questions = []
 
 
-def countFirstSlots():
-    return questions.count('first')
-
-
 def clear():
     global questions
     questions = []
+
+
+def countFirstSlots():
+    return questions.count('first')
 
 
 def returnFirst():

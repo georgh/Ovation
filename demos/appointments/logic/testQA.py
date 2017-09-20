@@ -1,22 +1,8 @@
-import datetime as dt
-
 import database as db
 import questionAnswer as qa
 
 # adding values to database:
-d = dt.datetime(2017, 9, 1)
-d = d.replace(day=19, hour=9)  # tuesday
-db.addTimeSlot(d)
-d = d.replace(day=19, hour=19)
-db.addTimeSlot(d)
-d = d.replace(day=26, hour=12)
-db.addTimeSlot(d)
-d = d.replace(day=24, hour=12)
-db.addTimeSlot(d)
-d = d.replace(day=24, hour=13)
-db.addTimeSlot(d)
-d = d.replace(day=23, hour=12)
-db.addTimeSlot(d)
+db.loadFromFile()
 
 print("Database initialized:")
 for b in db.timeslots:
@@ -48,8 +34,3 @@ print(qa.nextQuestion())
 print("User says: NO")
 db.removeFirst()
 print(qa.nextQuestion())
-print("User says: NO")
-db.removeFirst()
-print(qa.nextQuestion())
-print("User says: NO")
-db.removeFirst()
