@@ -1,8 +1,7 @@
-import audio
-
 class Speech():
 
     def __init__(self):
+        import audio
         print ("Using Speech")
         audio.init_threshold()
         
