@@ -145,6 +145,51 @@
         "text": "I cannot manage that",
         "intent": "Reject",
         "entities": []
+      },
+      {
+        "text": "I want to have a telephon call with my agent",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "can i have an appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Is it possible for appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "can you give me some appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "May I have an appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "I need an appointment today",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Can you schedule an appointment for today",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Give me an appointment for today",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Is an appointment slot free",
+        "intent": "Appointment",
+        "entities": []
       }
     ]
   }
