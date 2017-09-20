@@ -12,18 +12,19 @@ def listen_loop(io):
     while True:
         lang = io.initConversation()
         if not lang:
-            break
+            return
         print("Current language: ", lang)
         greeting = core.response(GREETING)
         io.say(greeting.text)
         while True:
             sentence = io.waitForSentence()
             if not sentence:
-                break
+                return
             answer = core.response(understand(sentence))
             io.say(answer.text)
             if answer.session_state == core.SessionState.DONE:
                 break
+
 
 def main():
     import argparse

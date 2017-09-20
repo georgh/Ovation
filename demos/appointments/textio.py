@@ -27,8 +27,5 @@ class TextIO:
         self.history.append(response)
         print("\x1b[1;30;44m" + "BOT:" + "\033[0m " + response )
 
-    def eof(self):
-        return self.file.eof()
-
     def readline(self):
         return self.file.readline().split("\n")[0]
