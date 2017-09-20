@@ -2,14 +2,16 @@ import sys
 
 class TextIO:
     def __init__(self):
-        print ("Using Text")
+        print ("Using Text-Mode! Start with a greeting in english or german:")
         
     def wait(self):
+        print("YOU: ", end='', flush=True)
         line=self.readline()
-        print("Wait", line)
+        print("Only english available at the moment...")
         return "en"
 
     def sentence(self):
+        print("YOU: ", end='', flush=True)
         line=self.readline()
         print("Sentence:", line)
         return line

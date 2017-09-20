@@ -11,17 +11,19 @@ parser.add_argument('-t', '-text', '--text', action='store_true', default=False,
 args = parser.parse_args() 
 
 def listen_loop(io):
+    lang = io.wait()
+    print("Listening for commands in", lang)
+    greeting = logic.response(logic.GREETING)
+    io.say(greeting.text)
     while True:
-        lang = io.wait()
-        print("Listening for commands in", lang)
-        greeting = logic.response(logic.GREETING)
-        io.say(greeting.text)
         sentence = io.sentence()
         if not sentence:
             break
         print("Commands received", sentence)
         answer = logic.response(understand(sentence))
         io.say(answer.text)
+        if answer.session_state == logic.SessionState.DONE:
+            break
 
 if args.text:
     backend=TextIO()
