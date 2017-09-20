@@ -1,6 +1,5 @@
 import database as db
 
-
 def apply(day=None, weekday=None, hour=None):
     """
     Valid calls:
