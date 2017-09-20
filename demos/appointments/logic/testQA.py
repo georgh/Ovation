@@ -5,18 +5,23 @@ from textio import TextIO
 
 
 def listen_loop(io):
-    while True:
+
         lang = io.initConversation()
         if not lang:
-            break
+            return
         print("Current language: ", lang)
-        greeting = core.response(core.GREETING)
-        io.say(greeting.text)
+        io.say("Hello! This is Ovation studio: how can we help you?")
         while True:
             sentence = io.waitForSentence()
             if not sentence:
                 break
+            # answer = core.response(core.UserInput(intent=core.Intent.AFFIRM, entities=""))
+            # answer = core.response(core.UserInput(intent=core.Intent.REJECT, entities=""))
+            # answer = core.response(core.UserInput(intent=core.Intent.GOODBYE, entities=""))
+            # answer = core.response(core.UserInput(intent=core.Intent.BLABLA, entities=""))
             answer = core.response(core.UserInput(intent=core.Intent.GREET, entities=""))
+            # answer = core.response(core.UserInput(intent=core.Intent.MAKE_AN_APPOINTMENT, entities=""))
+            # answer = core.response(understand(sentence))
 
             io.say(answer.text)
             if answer.session_state == core.SessionState.DONE:
@@ -44,14 +49,16 @@ def main():
             validate = open(args.dialog + ".output", "r").read().split("\n")
             backend = TextIO(infile)
             listen_loop(backend)
+            """
             if validate != backend.history:
-                print("\x1b[1;37;41m" + "#!# ERROR: #!#" + "\033[0m")
+                print("\x1b[1;30;41m" + "#!# ERROR: #!#" + "\033[0m")
                 # print("\x1b[1;37;41m" +"GOT:\n", "\n".join(backend.history) + "\033[0m", sep="")
                 # print("\x1b[1;37;41m" + "Expected:\n", "\n".join(validate) + "\033[0m", sep="")
                 print("GOT:\n", "\n".join(backend.history), sep="")
                 print("Expected:\n", "\n".join(validate), sep="")
             else:
                 print("\x1b[1;37;42m" + "#!# SUCCESS! #!#" + "\033[0m")
+            """
     else:
         from speech import Speech
         listen_loop(Speech())

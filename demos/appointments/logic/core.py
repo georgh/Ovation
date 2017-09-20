@@ -24,11 +24,6 @@ class UserInput:
         self.intent = intent
         self.entities = entities
 
-
-GREETING = UserInput("Hi", Intent.GREET)
-
-
-
 class ResultObject:
     def __init__(self, text, session_state = SessionState.CONTINUE):
         self.text = text
@@ -39,8 +34,8 @@ class ResultObject:
 
 # The input is a json object returned by RASA
 def response(user_input):
-    intent = user_input.intent 
-    print("Interprete ", intent)
+    intent = user_input.intent
+    print("Interpreted ", intent)
 
     # new Session starts and a we prepare a new fresh state for a new user
     if intent  == Intent.GREET:
@@ -50,7 +45,7 @@ def response(user_input):
 
     # User is greeting the bot
     if intent == Intent.GREET:
-        return ResultObject("Hello, what can I do for you?")        
+        return ResultObject("What can I do for you?")
 
     if intent == Intent.MAKE_AN_APPOINTMENT:
         return ResultObject(qa.nextQuestion())
