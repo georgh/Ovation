@@ -1,4 +1,6 @@
 import sys
+import os
+
 
 class TextIO:
     history=[]
@@ -7,18 +9,23 @@ class TextIO:
         
     def initConversation(self):
         print ("\nUsing Text-Mode! Start with a greeting in english or german:")
-        print("YOU: ", end='', flush=True)
-        line = self.readline()
-        print("", end="\r", flush=True)
-        print("YOU: " + line, flush=True)
+        if os.isatty(0): #read from stdin
+            print("\x1b[1;37;42m" + "YOU:" + "\033[0m ", end='', flush=True)
+            line = self.readline()
+        else: #read from file
+            line = self.readline()
+            print("\x1b[1;37;42m" + "YOU:" + "\033[0m " +line, flush=True)
+        
         print("Only english available at the moment...")
         return line and "en"
 
     def waitForSentence(self):
-        print("YOU: ", end='', flush=True)
-        line = self.readline()
-        print("", end="\r", flush=True)
-        print("YOU: " + line, flush=True)
+        if os.isatty(0): #read from stdin
+            print("\x1b[1;37;42m" + "YOU:" + "\033[0m ", end='', flush=True)
+            line = self.readline()
+        else:
+            line = self.readline()
+            print("\x1b[1;37;42m" + "YOU:" + "\033[0m " + line,flush=True)
         return line
 
     def say(self,response):
