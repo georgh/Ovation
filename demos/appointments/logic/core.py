@@ -66,5 +66,8 @@ def response(user_input):
     if intent == Intent.GOODBYE:
         return ResultObject("Goodbye and see you soon!", SessionState.DONE)
 
+
+    ## NOTE: We should check if the last restricions removes all available timeslots, if so we should tell the user (maybe not apply it?)
+
     return ResultObject("Sorry, I did not quite understand what you said...", SessionState.CONTINUE)
 
