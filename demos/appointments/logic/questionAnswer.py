@@ -23,6 +23,7 @@ def returnFirst():
     if value is None:
         return "There are no free appointments slots free in the next two weeks."
     else:
+        questions.append(str(value))
         return "First free slot would be " + str(value)
 
 def nextQuestion():

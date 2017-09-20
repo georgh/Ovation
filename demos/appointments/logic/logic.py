@@ -15,6 +15,8 @@ class ResultObject:
         self.session_state = session_state
 
 
+        # TODO integrate a reasonable parsing of rasa
+
 # The input is a json object returned by RASA
 def response(json):
     print("Interprete ", json)
@@ -47,6 +49,6 @@ def response(json):
     if name == "reject":
         return ResultObject("BotQuestion", SessionState.CONTINUE)
 
-    # Just because we are nice, we greet goodbye to user after an agreement is reached
+    # Just because we are nice, we say goodbye to user after an agreement is reached
     if name == "goodbye":
         return ResultObject("Goodbye and see you soon!", SessionState.DONE)

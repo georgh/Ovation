@@ -4,6 +4,8 @@ calendar = []
 timeslots = []
 
 
+# TODO Persist calendar and handle it
+
 def clear():
     global timeslots
     timeslots = []
