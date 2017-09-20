@@ -19,7 +19,8 @@ import os
 import time
 from pydub import AudioSegment
 
-
+import urllib3
+urllib3.disable_warnings()
 
 threshold = 2.0 ** 16
 volume_normalization = 0.5
@@ -45,6 +46,7 @@ def open_stream():
 
 
 def say(text):
+    # print("SAYING " + text)
     tts = gTTS(text=text, lang=language)
     with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as f:
         tmpfile = f.name
@@ -109,9 +111,10 @@ def write_frames_to_file(frames, volume=None):
 
 
 def transcribe(fp):
+    # print("try to transcribe ")
     data = fp.read()
     headers = {'content-type': 'audio/l16; rate=16000'}
-    r = http.post(request_url, data=data, headers=headers)
+    r = http.post(request_url, data=data, headers=headers, verify=False)
     try:
         r.raise_for_status()
     except requests.exceptions.HTTPError:
@@ -155,6 +158,7 @@ def init_threshold():
 
 
 def passive_listen():
+    # print("passive listening")
     global threshold
     frame_queue = queue.Queue()
     frames = collections.deque([], 30)
