@@ -16,7 +16,7 @@ class Speech():
         alts=audio.active_listen()[0]
         if alts: 
             return alts[0]
-        else
+        else:
             return None
 
     def eof(self):

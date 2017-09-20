@@ -114,7 +114,8 @@ def transcribe(fp):
     # print("try to transcribe ")
     data = fp.read()
     headers = {'content-type': 'audio/l16; rate=16000'}
-    r = http.post(request_url, data=data, headers=headers, verify=False)
+    r = http.post(request_url, data=data, headers=headers,
+                  verify=os.getenv('DISABLE_SSL_VERIFY', "0") == "1")
     try:
         r.raise_for_status()
     except requests.exceptions.HTTPError:
