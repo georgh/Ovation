@@ -1,7 +1,8 @@
+import calendar
 from datetime import datetime, timedelta
 
 import parsedatetime as pdt  # $ pip install parsedatetime
-import calendar
+
 
 def convertStrToDatetime():
       ##TODO
@@ -21,9 +22,9 @@ def timeToStr(hour, min):
 
       if min == 0:
             if hour > 12:
-                  return "{} a clock in the afternoon".format(hour-12)
+                  return "{} o clock in the afternoon".format(hour - 12)
             else:
-                  return "{} a clock".format(hour)
+                  return "{} o clock".format(hour)
       elif min == 30:
             if hour > 12:
                   return "half past {} in the afternoon".format(hour-12)

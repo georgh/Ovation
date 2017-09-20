@@ -43,10 +43,7 @@ def response(user_input):
         db.clear()
         db.loadFromFile()
 
-    # User is greeting the bot
-    if intent == Intent.GREET:
-        return ResultObject("What can I do for you?")
-
+    # User want to schedule an appointment
     if intent == Intent.MAKE_AN_APPOINTMENT:
         return ResultObject(qa.nextQuestion())
 
