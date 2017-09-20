@@ -17,5 +17,8 @@ class TextIO:
     def say(self,response):
         print(response)
 
+    def eof(self):
+        return sys.stdin.eof()
+
     def readline(self):
-        return sys.stdin.readline()[:-2]
+        return sys.stdin.readline().split("\n")[0]

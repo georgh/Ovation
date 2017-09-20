@@ -13,5 +13,8 @@ class Speech():
     def sentence(self):
         return audio.active_listen()[0]
 
+    def eof(self):
+        return False
+
     def say(self,response):
         audio.say(response)
