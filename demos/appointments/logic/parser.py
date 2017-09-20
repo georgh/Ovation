@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 import parsedatetime as pdt  # $ pip install parsedatetime
+import calendar
 
 def convertStrToDatetime():
       ##TODO
@@ -34,9 +35,13 @@ def timeToStr(hour, min):
 def dateToStr(day, month):
 
       if day == 1:
-            return "the first of X"
+            return "the first of {}".format(calendar.month_name[month])
+      elif day == 2:
+            return "the second of {}".format(calendar.month_name[month])
+      elif day == 3:
+            return "the third of {}".format(calendar.month_name[month])
       else:
-            return "{}th of X".format(day)
+            return "{}th of {}".format(day, calendar.month_name[month])
 
 def convertDatetimeToStr(date):
       print(date)
