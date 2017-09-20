@@ -37,7 +37,7 @@ class ResultObject:
 # The input is a json object returned by RASA
 def response(user_input):
     intent = user_input.intent 
-    print("Interprete ", intent)
+    # print("Interprete ", intent)
 
     # new Session starts and a we prepare a new fresh state for a new user
     if intent  == Intent.GREET:
