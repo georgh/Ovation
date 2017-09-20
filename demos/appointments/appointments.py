@@ -6,20 +6,20 @@ from textio import TextIO
 
 def listen_loop(io):
     while True:
-        lang = io.wait()
+        lang = io.initConversation()
         if not lang:
             break
-        print("Listening for commands in", lang)
+        print("Current language: ", lang)
         greeting = logic.response(logic.GREETING)
         io.say(greeting.text)
-        sentence = io.sentence()
-        if not sentence:
-            break
-        print("Commands received", sentence)
-        answer = logic.response(understand(sentence))
-        io.say(answer.text)
-        if answer.session_state == logic.SessionState.DONE:
-            break
+        while True:
+            sentence = io.waitForSentence()
+            if not sentence:
+                break
+            answer = logic.response(understand(sentence))
+            io.say(answer.text)
+            if answer.session_state == logic.SessionState.DONE:
+                break
 
 def main():
     import argparse

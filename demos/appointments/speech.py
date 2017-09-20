@@ -7,12 +7,12 @@ class Speech():
         print ("Using Speech")
         audio.init_threshold()
         
-    def wait(self):
+    def initConversation(self):
         print("Listening for keyword '", audio.keyword, "'", sep="")
         audio.passive_listen()
         return "en"
 
-    def sentence(self):
+    def waitForSentence(self):
         alts=audio.active_listen()[0]
         if alts: 
             return alts[0]

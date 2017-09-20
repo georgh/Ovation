@@ -25,6 +25,8 @@ def returnFirst():
         return "There are no free appointments slots free in the next two weeks."
     else:
         questions.append(str(value))
+        if len(questions) > 1:
+            return "Next free slot would be " + str(value)
         return "First free slot would be " + str(value)
 
 def nextQuestion():

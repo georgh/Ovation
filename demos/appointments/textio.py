@@ -3,24 +3,27 @@ import sys
 class TextIO:
     history=[]
     def __init__(self, file = sys.stdin):
-        print ("Using Text-Mode! Start with a greeting in english or german:")
         self.file = file
         
-    def wait(self):
+    def initConversation(self):
+        print ("\nUsing Text-Mode! Start with a greeting in english or german:")
         print("YOU: ", end='', flush=True)
-        line=self.readline()
+        line = self.readline()
+        print("", end="\r", flush=True)
+        print("YOU: " + line, flush=True)
         print("Only english available at the moment...")
         return line and "en"
 
-    def sentence(self):
+    def waitForSentence(self):
         print("YOU: ", end='', flush=True)
-        line=self.readline()
-        print("Sentence:", line)
+        line = self.readline()
+        print("", end="\r", flush=True)
+        print("YOU: " + line, flush=True)
         return line
 
     def say(self,response):
         self.history.append(response)
-        print(response)
+        print("BOT: " + response)
 
     def eof(self):
         return self.file.eof()
