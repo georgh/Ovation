@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from logic import logic
-from understanding import understand
+from logic import core
 from textio import TextIO
+from understanding import understand
+
 
 def listen_loop(io):
     while True:
@@ -10,15 +11,15 @@ def listen_loop(io):
         if not lang:
             break
         print("Current language: ", lang)
-        greeting = logic.response(logic.GREETING)
+        greeting = core.response(core.GREETING)
         io.say(greeting.text)
         while True:
             sentence = io.waitForSentence()
             if not sentence:
                 break
-            answer = logic.response(understand(sentence))
+            answer = core.response(understand(sentence))
             io.say(answer.text)
-            if answer.session_state == logic.SessionState.DONE:
+            if answer.session_state == core.SessionState.DONE:
                 break
 
 def main():
@@ -37,7 +38,6 @@ def main():
 
     
     if args.text:
-        import sys
         listen_loop(TextIO())
     elif args.dialog:
         with open(args.dialog) as infile:
