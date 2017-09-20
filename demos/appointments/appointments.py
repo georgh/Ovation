@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from logic import logic
 from understanding import understand
-from speech import Speech
 from textio import TextIO
 import argparse
 
@@ -28,7 +27,7 @@ if args.text:
     backend=TextIO()
 else:
     from speech import Speech
-    backend=Speach()
+    backend=Speech()
 
 listen_loop(backend)
 

@@ -44,11 +44,6 @@ def response(user_input):
         qa.clear()
         db.clear()
         db.loadFromFile()
-
-        return ResultObject("You can come, your appointment is booked", SessionState.DONE)
-
-    # User is greeting the bot
-    if intent == Intent.GREET:
         return ResultObject(qa.nextQuestion(), SessionState.CONTINUE)
 
     # User is accepting the proposed appointment

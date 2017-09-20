@@ -1,7 +1,9 @@
+import audio
+
+        
 class Speech():
 
     def __init__(self):
-        import audio
         print ("Using Speech")
         audio.init_threshold()
         
@@ -11,7 +13,11 @@ class Speech():
         return "en"
 
     def sentence(self):
-        return audio.active_listen()[0]
+        alts=audio.active_listen()[0]
+        if alts: 
+            return alts[0]
+        else
+            return None
 
     def eof(self):
         return False
