@@ -1,7 +1,7 @@
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.model import Metadata, Interpreter
 
-from logic.logic import UserInput
+from logic.core import UserInput
 
 model_directory = './models/default'
 config = RasaNLUConfig("config/config_mitie+sklearn.json")

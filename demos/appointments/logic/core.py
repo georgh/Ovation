@@ -1,6 +1,8 @@
 from enum import Enum
+
 import logic.database as db
 import logic.questionAnswer as qa
+
 
 class Intent:
     AFFIRM="Accept"

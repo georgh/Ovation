@@ -1,5 +1,5 @@
-import database as db
-import questionAnswer as qa
+import logic.database as db
+import logic.questionAnswer as qa
 
 # adding values to database:
 db.loadFromFile()
