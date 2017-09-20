@@ -1,4 +1,4 @@
-﻿{
+{
   "rasa_nlu_data": {
     "common_examples": [
       {
@@ -11,6 +11,12 @@
         "intent": "Exit",
         "entities": []
       },
+	{
+	    "text": "Goodbye",
+            "intent": "Exit",
+            "entities": []
+	},
+
       {
         "text": "Thanks, Good Bye",
         "intent": "Exit",
