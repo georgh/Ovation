@@ -18,6 +18,8 @@ def listen_loop(io):
         print("Commands received", sentence)
         answer = logic.response(understand(sentence))
         io.say(answer.text)
+        if answer.session_state == logic.SessionState.DONE:
+            break
 
 def main():
     import argparse

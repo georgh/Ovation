@@ -3,15 +3,17 @@ import sys
 class TextIO:
     history=[]
     def __init__(self, file = sys.stdin):
+        print ("Using Text-Mode! Start with a greeting in english or german:")
         self.file = file
-        print ("Using Text")
         
     def wait(self):
+        print("YOU: ", end='', flush=True)
         line=self.readline()
-        print("Wait", line)
+        print("Only english available at the moment...")
         return line and "en"
 
     def sentence(self):
+        print("YOU: ", end='', flush=True)
         line=self.readline()
         print("Sentence:", line)
         return line

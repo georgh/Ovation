@@ -10,5 +10,10 @@ interpreter = Interpreter.load(metadata, config )
 
 def understand(sentence):
   result = interpreter.parse(sentence)
-  print(result)
+  # print("### DEBUG:")
+  # print("intent : " + str(result['intent']))
+  # print("entities : " + str(result['entities']))
+  # print('intent_ranking:')
+  # for v in result['intent_ranking']:
+  #     print("    " +  str(v))
   return UserInput(sentence, result["intent"]["name"], result["entities"])
