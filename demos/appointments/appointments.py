@@ -5,13 +5,16 @@ from textio import TextIO
 from understanding import understand
 
 
+GREETING = core.UserInput("Hi", core.Intent.GREET)
+
 def listen_loop(io):
+    global GREETING
     while True:
         lang = io.initConversation()
         if not lang:
             break
         print("Current language: ", lang)
-        greeting = core.response(core.GREETING)
+        greeting = core.response(GREETING)
         io.say(greeting.text)
         while True:
             sentence = io.waitForSentence()
