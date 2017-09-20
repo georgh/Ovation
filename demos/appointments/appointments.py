@@ -47,7 +47,7 @@ def main():
             if validate != backend.history:
                 print("ERROR")
                 print("GOT:\n", "\n".join(backend.history), sep="")
-                print("Expected:\n", "\n".join(validate));
+                print("Expected:\n", "\n".join(validate), sep="");
             else:
                 print("SUCCESS");
     else:
