@@ -1,3 +1,5 @@
+import datetime
+
 import logic.database as db
 
 """
@@ -7,15 +9,11 @@ and the last questions asked (so that we do not repeat them)
 """
 
 questions = []
-lastProposed = None
 RETARDMODE = True
 
 def clear():
     global questions
     questions = []
-    global lastProposed
-    lastProposed = None
-    print("clear")
 
 
 def countFirstSlots():
@@ -23,29 +21,25 @@ def countFirstSlots():
 
 
 def returnFirst():
-    global lastProposed
     value = db.getFirstFree()
     if value is None:
         return "There are no free appointments slots free in the next two weeks."
     else:
-        questions.append(str(value))
-        lastProposed = value
+        questions.append("first")
+        questions.append(value)
         return "Next free slot would be " + str(value)
 
 
 def getLastProposedTimeslot():
-    global lastProposed
-    if lastProposed == None:
-        print("I DID NOT PROPOSE A TIME YET! ")
-        return "", ""
-
-    return lastProposed.day, lastProposed.hour
+    for e in reversed(questions):
+        if type(e) is datetime:
+            return e
+    # No slots were proposed yet
+    return None
 
 
 def nextQuestion():
-    global RETARDMODE
     if countFirstSlots() < 2 or RETARDMODE:
-        questions.append("first")
         return returnFirst()
 
     scores = db.queryScores()

@@ -4,8 +4,6 @@ calendar = []
 timeslots = []
 
 
-# TODO Persist calendar and handle it
-
 def clear():
     global timeslots
     timeslots = []
@@ -20,6 +18,10 @@ def getFirstFree():
     if len(timeslots) == 0:
         return None
     return timeslots[0]
+
+
+def remove(date):
+    timeslots.remove(date)
 
 
 def removeFirst():
@@ -46,3 +48,9 @@ def loadFromFile():
     global timeslots
     timeslots = content
     return
+
+
+def persist(chosenDate):
+    loadFromFile()
+    remove(chosenDate)
+    saveToFile()

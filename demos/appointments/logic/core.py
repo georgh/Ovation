@@ -13,19 +13,19 @@ class Intent:
     MAKE_AN_APPOINTMENT="Appointment"
 
 
-
 class SessionState(Enum):
     DONE = 0
     CONTINUE = 1
 
 
 class UserInput:
-    def __init__(self, text, intent, entities=[]):
+    def __init__(self, text=None, intent=None, entities=[]):
         self.text = text
         self.intent = intent
         self.entities = entities
 
-GREETING=UserInput("Hi", Intent.GREET)        
+
+GREETING = UserInput("Hi", Intent.GREET)
 
 
 
@@ -33,8 +33,6 @@ class ResultObject:
     def __init__(self, text, session_state = SessionState.CONTINUE):
         self.text = text
         self.session_state = session_state
-
-
 
 
 # TODO integrate a reasonable parsing of rasa
