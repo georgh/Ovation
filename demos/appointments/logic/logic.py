@@ -17,10 +17,12 @@ class SessionState(Enum):
 
 
 class UserInput:
-    def __init__(self, text, intent, entities):
+    def __init__(self, text, intent, entities=[]):
         self.text = text
         self.intent = intent
         self.entities = entities
+
+GREETING=UserInput("Hi", Intent.GREET)        
 
 
 

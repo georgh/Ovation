@@ -15,6 +15,8 @@ def listen_loop(io):
     while True:
         lang = io.wait()
         print("Listening for commands in", lang)
+        greeting = logic.response(logic.GREETING)
+        io.say(greeting.text)
         sentence = io.sentence()
         if not sentence:
             break
