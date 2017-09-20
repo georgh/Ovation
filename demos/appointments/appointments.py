@@ -3,37 +3,38 @@
 from logic import core
 from logic import database as db
 from textio import TextIO
+from understanding import understand
 
 
 def listen_loop(io):
     io.say("Hello this is Ovation studio: how can we help you?")
     # i = 0
-        while True:
-            sentence = io.waitForSentence()
-            if not sentence:
-                break
+    while True:
+        sentence = io.waitForSentence()
+        if not sentence:
+            break
 
-            """
-                # answer = core.response(core.UserInput(intent=core.Intent.AFFIRM))
-                # answer = core.response(core.UserInput(intent=core.Intent.REJECT))
-                # answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
-                # answer = core.response(core.UserInput(intent=core.Intent.BLABLA))
-                # answer = core.response(core.UserInput(intent=core.Intent.GREET))
+        """
+            # answer = core.response(core.UserInput(intent=core.Intent.AFFIRM))
+            # answer = core.response(core.UserInput(intent=core.Intent.REJECT))
+            # answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
+            # answer = core.response(core.UserInput(intent=core.Intent.BLABLA))
+            # answer = core.response(core.UserInput(intent=core.Intent.GREET))
 
-            if i == 0:
-                answer = core.response(core.UserInput(intent=core.Intent.MAKE_AN_APPOINTMENT))
-            elif i == 1:
-                answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
-            elif i == 2:
-                pass
+        if i == 0:
+            answer = core.response(core.UserInput(intent=core.Intent.MAKE_AN_APPOINTMENT))
+        elif i == 1:
+            answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
+        elif i == 2:
+            pass
 
-            i += 1
-            """
-            answer = core.response(understand(sentence))
+        i += 1
+        """
+        answer = core.response(understand(sentence))
 
-            io.say(answer.text)
-            if answer.session_state == core.SessionState.DONE:
-                break
+        io.say(answer.text)
+        if answer.session_state == core.SessionState.DONE:
+            break
 
 
 def main():
