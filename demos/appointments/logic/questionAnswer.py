@@ -1,6 +1,8 @@
 import datetime
 
 import logic.database as db
+import logic.parser as parser
+
 
 """
 This class implements the logic of the QA for the bot aka it chooses
@@ -32,10 +34,12 @@ def returnFirst():
 
 def getLastProposedTimeslot():
     for e in reversed(questions):
-        if type(e) is datetime:
-            return e
+        if isinstance(e,datetime.datetime):
+            return parser.convertDateToStr(e)
     # No slots were proposed yet
+    print("returning none")
     return None
+
 
 
 def nextQuestion():
