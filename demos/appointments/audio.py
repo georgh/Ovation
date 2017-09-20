@@ -23,7 +23,7 @@ from pydub import AudioSegment
 
 threshold = 2.0 ** 16
 volume_normalization = 0.5
-keyword = "Appointment"
+keyword = "Hello"
 language = "en"
 greeting = "Hello"
 timeout = 3

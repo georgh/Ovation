@@ -2,30 +2,22 @@
 # -*- coding: utf-8 -*-
 
 
-import audio
+from speech import Speech
 from logic import logic
 from understanding import understand
 
-def act(transcription):
-    for alt in transcription:        
-        print(alt)
-        answer = logic.response(understand(alt))
-        audio.say(answer.text)
-        return answer.session_state
 
-
-def listen_loop():
-    audio.init_threshold()
-
+def listen_loop(io):
     while True:
-        print("Listening for keyword 'appointment'")
-        audio.passive_listen()
-        print("Listening for commands")
-        transcription = audio.active_listen()
-        print("Commands received")
-        if transcription:
-            act(transcription)
+        lang = io.wait()
+        print("Listening for commands in", lang)
+        sentence = io.sentence()
 
-listen_loop()
+        print("Commands received", sentence)
+        answer = logic.response(understand(sentence))
+        io.say(answer.text)
+
+
+listen_loop(Speech())
 
 
