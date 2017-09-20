@@ -3,8 +3,8 @@
 cd $(dirname $0)/..
 BACKEND=$(cat config/BACKEND)
 python -m rasa_nlu.train -c config/config_$BACKEND.json
-if [[ -e models/default ]]
+if [[ -e models/default || "$1" == "-f" ]]
 then
     cd models
-    ln -s $(ls | tail -1) default
+    ln -sfv $(ls | tail -1) default
 fi

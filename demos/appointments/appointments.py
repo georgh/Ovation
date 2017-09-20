@@ -45,11 +45,13 @@ def main():
             backend = TextIO(infile)
             listen_loop(backend)
             if validate != backend.history:
-                print("ERROR")
+                print("\x1b[1;37;41m" + "#!# ERROR: #!#" + "\033[0m")
+                # print("\x1b[1;37;41m" +"GOT:\n", "\n".join(backend.history) + "\033[0m", sep="")
+                # print("\x1b[1;37;41m" + "Expected:\n", "\n".join(validate) + "\033[0m", sep="")
                 print("GOT:\n", "\n".join(backend.history), sep="")
-                print("Expected:\n", "\n".join(validate), sep="");
+                print("Expected:\n", "\n".join(validate), sep="")
             else:
-                print("SUCCESS");
+                print("\x1b[1;37;42m" + "#!# SUCCESS! #!#" + "\033[0m")
     else:
         from speech import Speech
         listen_loop(Speech())

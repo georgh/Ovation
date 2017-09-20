@@ -9,12 +9,14 @@ class Speech():
         
     def initConversation(self):
         print("Listening for keyword '", audio.keyword, "'", sep="")
-        audio.passive_listen()
+        line = audio.passive_listen()
+        print("YOU:", line)
         return "en"
 
     def waitForSentence(self):
-        alts=audio.active_listen()[0]
-        if alts: 
+        alts=audio.active_listen()
+        if alts:
+            print("YOU:", alts)
             return alts[0]
         else:
             return None
@@ -23,4 +25,5 @@ class Speech():
         return False
 
     def say(self,response):
+        print("BOT:", response)
         audio.say(response)

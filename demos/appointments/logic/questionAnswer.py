@@ -7,12 +7,15 @@ and the last questions asked (so that we do not repeat them)
 """
 
 questions = []
-
+lastProposed = None
 RETARDMODE = True
 
 def clear():
     global questions
     questions = []
+    global lastProposed
+    lastProposed = None
+    print("clear")
 
 
 def countFirstSlots():
@@ -20,12 +23,24 @@ def countFirstSlots():
 
 
 def returnFirst():
+    global lastProposed
     value = db.getFirstFree()
     if value is None:
         return "There are no free appointments slots free in the next two weeks."
     else:
         questions.append(str(value))
+        lastProposed = value
         return "Next free slot would be " + str(value)
+
+
+def getLastProposedTimeslot():
+    global lastProposed
+    if lastProposed == None:
+        print("I DID NOT PROPOSE A TIME YET! ")
+        return "", ""
+
+    return lastProposed.day, lastProposed.hour
+
 
 def nextQuestion():
     global RETARDMODE

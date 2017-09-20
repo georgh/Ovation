@@ -60,7 +60,7 @@ def response(user_input):
     # User is accepting the proposed appointment
     if intent  == Intent.AFFIRM:
         # TODO remove from the list of calendar the now boooked appointment
-        date, time = "2017-09-19", "09:00:00" #qa.getLastProposedTimeslot()
+        date, time = qa.getLastProposedTimeslot()
         return ResultObject("So the agent will call you on {} at {}. Thank you and goodbye.".format(date, time), SessionState.DONE)
 
     # User directly rejected the proposed appointment

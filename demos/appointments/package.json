@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mindgarage/Ovation/issues"
   },
-  "homepage": "https://github.com/mindgarage/Ovation#readme"
+  "homepage": "https://github.com/mindgarage/Ovation#readme",
+  "dependencies": {
+    "json-validation": "^1.0.4"
+  }
 }
