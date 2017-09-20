@@ -1,6 +1,17 @@
 {
-  "rasa_nlu_data": {
-    "common_examples": [
+    "rasa_nlu_data": {
+	"regex_features": [
+	    {
+		"name": "zipcode",
+		"pattern": "[0-9]{5}"
+	    },
+	    
+	    "common_examples": [
+      {
+        "text": "good bye", 
+        "intent": "Exit", 
+        "entities": []
+      }, 
       {
         "text": "Bye Bye",
         "intent": "Exit",
@@ -11,12 +22,6 @@
         "intent": "Exit",
         "entities": []
       },
-	{
-	    "text": "Goodbye",
-            "intent": "Exit",
-            "entities": []
-	},
-
       {
         "text": "Thanks, Good Bye",
         "intent": "Exit",
@@ -30,6 +35,26 @@
       {
         "text": "Great, See you",
         "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "that's right",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "right, thank you",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "great choice",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "sounds really good",
+        "intent": "Accept",
         "entities": []
       },
       {
@@ -65,31 +90,6 @@
       {
         "text": "I am Okay",
         "intent": "Accept",
-        "entities": []
-      },
-      {
-        "text": "Perfect",
-        "intent": "Accept",
-        "entities": []
-      },
-      {
-        "text": "Agreed",
-        "intent": "Accept",
-        "entities": []
-      },
-      {
-        "text": "Okay",
-        "intent": "Accept",
-        "entities": []
-      },
-      {
-        "text": "No",
-        "intent": "Reject",
-        "entities": []
-      },
-      {
-        "text": "Nope",
-        "intent": "Reject",
         "entities": []
       },
       {
@@ -195,6 +195,27 @@
       {
         "text": "Is an appointment slot  free",
         "intent": "Appointment",
+        "entities": []
+      },
+		
+      {
+        "text": "hey there",
+        "intent": "Greet", 
+        "entities": []
+      },
+      {
+        "text": "good morning",
+        "intent": "Greet",
+        "entities": []
+      },
+      {
+        "text": "good evening",
+        "intent": "Greet",
+        "entities": []
+      },
+      {
+        "text": "dear sir",
+        "intent": "Greet",
         "entities": []
       }
     ]
