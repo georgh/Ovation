@@ -15,6 +15,7 @@ def clear():
     questions = []
     global lastProposed
     lastProposed = None
+    print("clear")
 
 
 def countFirstSlots():
@@ -22,6 +23,7 @@ def countFirstSlots():
 
 
 def returnFirst():
+    global lastProposed
     value = db.getFirstFree()
     if value is None:
         return "There are no free appointments slots free in the next two weeks."
@@ -35,7 +37,9 @@ def getLastProposedTimeslot():
     global lastProposed
     if lastProposed == None:
         print("I DID NOT PROPOSE A TIME YET! ")
-    return lastProposed
+        return "", ""
+
+    return lastProposed.day, lastProposed.hour
 
 
 def nextQuestion():
