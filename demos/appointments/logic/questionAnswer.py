@@ -8,6 +8,7 @@ and the last questions asked (so that we do not repeat them)
 
 questions = []
 
+RETARDMODE = True
 
 def clear():
     global questions
@@ -27,7 +28,8 @@ def returnFirst():
         return "First free slot would be " + str(value)
 
 def nextQuestion():
-    if countFirstSlots() < 2:
+    global RETARDMODE
+    if countFirstSlots() < 2 or RETARDMODE:
         questions.append("first")
         return returnFirst()
 

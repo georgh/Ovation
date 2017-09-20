@@ -56,7 +56,9 @@ def response(user_input):
 
     # User directly rejected the proposed appointment
     if intent == Intent.REJECT:
-        return ResultObject("BotQuestion", SessionState.CONTINUE)
+        #remove the last proposed slot from the list
+        db.removeFirst()
+        return ResultObject(qa.nextQuestion(), SessionState.CONTINUE)
 
     # Just because we are nice, we say goodbye to user after an agreement is reached
     if intent == Intent.GOODBYE:

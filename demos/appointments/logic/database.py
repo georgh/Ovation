@@ -23,7 +23,8 @@ def getFirstFree():
 
 
 def removeFirst():
-    del timeslots[0]
+    if len(timeslots) > 0:
+        del timeslots[0]
 
 
 def queryScores():
