@@ -4,9 +4,10 @@
 	    {
 		"name": "zipcode",
 		"pattern": "[0-9]{5}"
-	    },
-	    
-	    "common_examples": [
+	    }
+	],
+	
+	"common_examples": [
       {
         "text": "good bye", 
         "intent": "Exit", 
@@ -159,6 +160,11 @@
       },
       {
         "text": "can i have an appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+	    {
+		"text": "make an appointment",
         "intent": "Appointment",
         "entities": []
       },

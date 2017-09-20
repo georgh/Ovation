@@ -6,11 +6,12 @@ from logic.core import UserInput
 from simpleMatch import trivial_intent
 
 model_directory = './models/default'
-config = RasaNLUConfig("config/config_mitie+sklearn.json")
+config = RasaNLUConfig("config/config_mitie.json")
 metadata = Metadata.load(model_directory)
 interpreter = Interpreter.load(metadata, config )
 
 def understand(sentence):
+  sentence =sentence.lower()
   intent = trivial_intent(sentence)
   if intent:
     return UserInput(sentence, intent, [])
