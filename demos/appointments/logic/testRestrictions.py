@@ -22,6 +22,7 @@ print("Database initialized! entries are now:")
 for b in db.timeslots:
       print("{} weekday: {}".format(b, b.weekday()))
 
+print(db.queryScores())
 
 print("First free: " + str(db.getFirstFree()))
 

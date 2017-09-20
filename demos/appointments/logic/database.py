@@ -1,4 +1,6 @@
 import datetime as dt
+import numpy as np
+from datetime import datetime
 
 calendar = []
 timeslots = []
@@ -30,7 +32,30 @@ def removeFirst():
 
 
 def queryScores():
-    return [1, 2, 3]
+    '''
+    Computes a score for the following cases:
+    "morning or Afternoon"
+    "which day" 
+    "this or next week" 
+
+   
+    '''
+    days = np.zeros(shape=(7,1))
+    countAfternoon = 0
+    week = np.zeros(shape=(3,1))
+    currentWeek = datetime.now().isocalendar()[1]
+    for tsl in timeslots:
+        days[tsl.weekday()] += 1
+        countAfternoon += (tsl.hour > 12)
+        if currentWeek == tsl.isocalendar()[1]:
+            week[0] += 1
+        elif (currentWeek+1) == tsl.isocalendar()[1]:
+            week[1] += 1
+        else:
+            week[2] += 1
+
+    moAf = min(len(timeslots) - countAfternoon, countAfternoon)
+    return [moAf, np.min(days), np.min(week)]
 
 
 def saveToFile():
