@@ -1,7 +1,7 @@
 from enum import Enum
 
-import database as db
-import questionAnswer as qa
+import logic.database as db
+import logic.questionAnswer as qa
 
 
 class SessionState(Enum):

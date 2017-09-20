@@ -1,4 +1,4 @@
-import database as db
+import logic.database as db
 
 """
 This class implements the logic of the QA for the bot aka it chooses
