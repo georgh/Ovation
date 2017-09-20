@@ -8,6 +8,7 @@ class Intent:
     GOODBYE="Exit"
     BLABLA="Blabla"
     GREET="Greet"
+    MAKE_AN_APPOINTMENT="Appointment"
 
 
 
@@ -27,9 +28,11 @@ GREETING=UserInput("Hi", Intent.GREET)
 
 
 class ResultObject:
-    def __init__(self, text, session_state):
+    def __init__(self, text, session_state = SessionState.CONTINUE):
         self.text = text
         self.session_state = session_state
+
+
 
 
 # TODO integrate a reasonable parsing of rasa
@@ -37,7 +40,7 @@ class ResultObject:
 # The input is a json object returned by RASA
 def response(user_input):
     intent = user_input.intent 
-    # print("Interprete ", intent)
+    print("Interprete ", intent)
 
     # new Session starts and a we prepare a new fresh state for a new user
     if intent  == Intent.GREET:
@@ -47,12 +50,16 @@ def response(user_input):
 
     # User is greeting the bot
     if intent == Intent.GREET:
-        return ResultObject(qa.nextQuestion(), SessionState.CONTINUE)
+        return ResultObject("Hello, what can I do for you?")        
+
+    if intent == Intent.MAKE_AN_APPOINTMENT:
+        return ResultObject(qa.nextQuestion())
 
     # User is accepting the proposed appointment
     if intent  == Intent.AFFIRM:
         # TODO remove from the list of calendar the now boooked appointment
-        return ResultObject("You can come, your appointment is booked", SessionState.DONE)
+        date, time = "2017-09-19", "09:00:00" #qa.getLastProposedTimeslot()
+        return ResultObject("So the agent will call you on {} at {}. Thank you and goodbye.".format(date, time), SessionState.DONE)
 
     # User directly rejected the proposed appointment
     if intent == Intent.REJECT:
