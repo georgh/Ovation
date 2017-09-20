@@ -23,7 +23,7 @@ class TextIO:
 
     def say(self,response):
         self.history.append(response)
-        print("BOT: " + response)
+        print("\x1b[1;37;41m" + "BOT:" + "\033[0m " + response )
 
     def eof(self):
         return self.file.eof()
