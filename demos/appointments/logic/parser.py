@@ -13,10 +13,12 @@ def convertStrToDatetime(time_string):
 def timeToStr(hour, min):
 
       if min == 0:
+            if hour > 18:
+                  return "{} o clock in the evening".format(hour - 12)
             if hour > 12:
                   return "{} o clock in the afternoon".format(hour - 12)
             else:
-                  return "{} o clock".format(hour)
+                  return "{} o clock in the morning".format(hour)
       elif min == 30:
             if hour > 12:
                   return "half past {} in the afternoon".format(hour-12)
