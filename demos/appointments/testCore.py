@@ -11,8 +11,9 @@ for b in db.timeslots:
 
 now, _ = parser.convertStrToDatetime("tomorrow")
 user_input = core.UserInput("", 
-      core.Intent.POSITIVE, 
+      core.Intent.NEGATIV, 
       [core.Entity(str(now), "date"), core.Entity("Tuesday", "day"), core.Entity("morning", "timespan")    ])
+ #     [core.Entity(str(now), "date"), core.Entity("Tuesday", "day"), core.Entity("morning", "timespan")    ])
 print(user_input.entities)
 res = core.response(user_input)
 print(res.text)
