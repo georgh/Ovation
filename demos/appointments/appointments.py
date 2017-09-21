@@ -7,34 +7,19 @@ from understanding import understand
 
 
 def listen_loop(io):
-    io.say("Hello this is Ovation studio: how can we help you?")
-    # i = 0
-    while True:
-        sentence = io.waitForSentence()
-        if not sentence:
-            break
+    while not io.eof:
+        io.initConversation()
+        io.say("Hello this is Ovation studio: how can we help you?")
+        session_state = core.SessionState.CONTINUE
+        while session_state != core.SessionState.DONE:
+            sentence = io.waitForSentence()
+            if io.eof:
+                return
 
-        """
-            # answer = core.response(core.UserInput(intent=core.Intent.AFFIRM))
-            # answer = core.response(core.UserInput(intent=core.Intent.REJECT))
-            # answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
-            # answer = core.response(core.UserInput(intent=core.Intent.BLABLA))
-            # answer = core.response(core.UserInput(intent=core.Intent.GREET))
+            answer = core.response(understand(sentence))
 
-        if i == 0:
-            answer = core.response(core.UserInput(intent=core.Intent.MAKE_AN_APPOINTMENT))
-        elif i == 1:
-            answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
-        elif i == 2:
-            pass
-
-        i += 1
-        """
-        answer = core.response(understand(sentence))
-
-        io.say(answer.text)
-        if answer.session_state == core.SessionState.DONE:
-            break
+            io.say(answer.text)
+            session_state = answer.session_state
 
 
 def main():
@@ -61,7 +46,6 @@ def main():
             validate = open(args.dialog + ".output", "r").read().split("\n")
             backend = TextIO(infile)
             listen_loop(backend)
-            """
             if validate != backend.history:
                 print("\x1b[1;30;41m" + "#!# ERROR: #!#" + "\033[0m")
                 # print("\x1b[1;37;41m" +"GOT:\n", "\n".join(backend.history) + "\033[0m", sep="")
@@ -70,7 +54,6 @@ def main():
                 print("Expected:\n", "\n".join(validate), sep="")
             else:
                 print("\x1b[1;37;42m" + "#!# SUCCESS! #!#" + "\033[0m")
-            """
     else:
         from speech import Speech
         listen_loop(Speech())

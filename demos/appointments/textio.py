@@ -6,6 +6,10 @@ class TextIO:
     history=[]
     def __init__(self, file = sys.stdin):
         self.file = file
+        self.eof = False
+
+    def initConversation(self):
+        print("Using Text")
         
 
     def waitForSentence(self):
@@ -23,4 +27,7 @@ class TextIO:
         print("\x1b[1;30;44m" + "BOT:" + "\033[0m " + response )
 
     def readline(self):
-        return self.file.readline().split("\n")[0]
+        line = self.file.readline()
+        if not line:
+            self.eof = True
+        return line.split("\n")[0]
