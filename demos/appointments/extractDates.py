@@ -39,13 +39,12 @@ def findDates(sentence):
 
 
 def findTime(sentence):
-    result=[]
+    result=set()
     
     for time_regex in [time_regex1, time_regex2, time_regex3]:
         for time in findMatches(time_regex, sentence):
-            print ("time", time)
-            result.append( (time.group(1), int(time.group(2))))
-    return result
+            result.add( (time.group(1), int(time.group(2))))
+    return list(result)
 
 if __name__ == '__main__':
     print(findTime("5 o clock"))
