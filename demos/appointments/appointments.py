@@ -8,18 +8,30 @@ from understanding import understand
 
 from datetime import datetime
 
+class Session:
+    def __init__(self, io):
+        self.lastResponse = None
+        self.io = io
+
+    def say(self,response):
+        self.lastResponse = response
+        self.io.say(response)
+
+    def handleMetaCommand(self, userInput):
+        return None
+
 def listen_loop(io):
+    session = Session(io)
     while io.check():
-        io.say("I am the ovation insurance chatbot: how can I help you?")
+        session.say("I am the ovation insurance chatbot: how can I help you?")
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
             sentence = io.waitForSentence()
             if not sentence:
                 return
-
-            answer = core.response(understand(sentence))
-
-            io.say(answer.text)
+            userInput = understand(sentence)
+            answer = session.handleMetaCommand(userInput) or core.response(userInput)
+            session.say(answer.text)
             session_state = answer.session_state
 
 def enter_test_mode():
