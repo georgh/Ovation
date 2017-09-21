@@ -1,10 +1,9 @@
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.model import Metadata, Interpreter
 
+from extractDates import findDates
 from logic.core import UserInput, Entity
 from simpleMatch import trivial_intent
-
-from extractDates import findDates
 
 model_directory = './models/default'
 config = RasaNLUConfig("config/config_mitie.json")
@@ -16,7 +15,7 @@ def understand(sentence):
   intent = trivial_intent(sentence)
   if intent:
     return UserInput(sentence, intent)
-  
+
   result = interpreter.parse(sentence)
   extraDates = [Entity(date, 'date') for date in findDates(sentence)]
   entities=[Entity(item['value'], item['entity']) for item in result["entities"]]
