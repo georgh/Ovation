@@ -12,6 +12,12 @@ INTENT_MAP=[
     ]),
     (Intent.REJECT, [
         "no", "nope", 
+    ]),
+    (Intent.REPEAT,  [
+        "repeat"
+    ]),
+    (Intent.WAIT, [
+        "wait"
     ])
 ]
 

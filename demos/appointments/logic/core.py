@@ -13,6 +13,8 @@ class Intent:
     MAKE_AN_APPOINTMENT="appointment"
     POSITIVE="positive"
     NEGATIVE="negative"
+    REPEAT="repeat"
+    WAIT="wait"
 
 class Entity:
     def __init__(self, value, entity):
