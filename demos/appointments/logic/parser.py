@@ -68,6 +68,8 @@ def dateToStr(day, month, weekdayNum):
             return "{} the {}th of {}".format(dayname, day, calendar.month_name[month])
 
 def convertDatetimeToStr(date):
+      if date == None:
+            return "Error: Input is none"
       now = datetime.now()
       tomorrow = datetime.now() + timedelta(days=1)
       if date.date() == datetime.today().date(): #is today

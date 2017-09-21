@@ -1,5 +1,5 @@
 import sys
-
+import os
 
 class StdIO:
     history=[]
@@ -13,8 +13,13 @@ class StdIO:
         
 
     def waitForSentence(self):
-        print("\x1b[1;30;42m" + "USR:" + "\033[0m ", end='', flush=True)
-        return self.readline()
+        if not os.isatty(0): # use pipe
+            line = self.readline()
+            print("\x1b[1;37;42m" + "YOU:" + "\033[0m " +line, flush=True)
+        else:
+            print("\x1b[1;37;42m" + "YOU:" + "\033[0m ", end='', flush=True)
+            line = self.readline()
+        return line
 
     def say(self,response):
         self.history.append(response)

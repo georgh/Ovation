@@ -23,7 +23,8 @@ def getFirstFree():
 
 
 def remove(date):
-    timeslots.remove(date)
+    if date != None:
+        timeslots.remove(date)
 
 
 def removeFirst():
