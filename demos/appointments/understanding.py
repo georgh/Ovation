@@ -31,7 +31,7 @@ def understand(sentence):
 
   result = interpreter.parse(sentence)
   extraDates = [Entity(date, 'date') for date in findDates(sentence)]
-  extraTimes = [Entity(clock, 'clock') for clock in findTime(sentence)]
+  extraTimes = [Entity(clock, 'hour') for clock in findTime(sentence)]
   entities=[Entity(item['value'], item['entity']) for item in result["entities"]]
   entities=[entity for entity in entities if entityIsValid(entity)]
   if "intent" in result:
