@@ -29,7 +29,7 @@ def returnFirst():
     else:
         questions.append("first")
         questions.append(value)
-        return "Next free slot would be " + str(value)
+        return "Next free slot would be " + parser.convertDatetimeToStr(value)
 
 
 def getLastProposedTimeslot():
