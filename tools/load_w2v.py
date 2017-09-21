@@ -1,11 +1,8 @@
-import os
-import sys
-import spacy
 import argparse
-import collections
-import logging
+import sys
 
 import numpy as np
+import spacy
 
 parser = argparse.ArgumentParser(
     description="Generates a new set of vectors corresponding to a "

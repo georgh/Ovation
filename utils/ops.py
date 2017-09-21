@@ -1,13 +1,12 @@
-import tflearn
 import tensorflow as tf
-import numpy as np
-
-from tflearn.layers.core import dropout
+import tflearn
+from tensorflow.contrib.tensorboard.plugins import projector
 from tflearn.layers.conv import conv_1d
 from tflearn.layers.conv import max_pool_1d
-from tflearn.layers.recurrent import bidirectional_rnn
+from tflearn.layers.core import dropout
 from tflearn.layers.recurrent import BasicLSTMCell
-from tensorflow.contrib.tensorboard.plugins import projector
+from tflearn.layers.recurrent import bidirectional_rnn
+
 
 def multi_filter_conv_block(input, n_filters, reuse=False,
                             dropout_keep_prob=0.5, activation='relu',

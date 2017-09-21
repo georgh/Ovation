@@ -1,14 +1,12 @@
-import os
-import pickle
 import datetime
 
 import tensorflow as tf
+from tensorflow.contrib.rnn import stack_bidirectional_rnn
+from tensorflow.contrib.tensorboard.plugins import projector
+from tflearn.layers import dropout
 
 from utils import ops
 from .model import Model
-from tflearn.layers import dropout
-from tensorflow.contrib.tensorboard.plugins import projector
-from tensorflow.contrib.rnn import stack_bidirectional_rnn
 
 
 class BLSTMGermEval(Model):

@@ -53,15 +53,12 @@ from __future__ import division
 from __future__ import print_function
 
 import collections
-import os.path
-
 
 import gensim.models
 import numpy as np
+import os.path
 import sklearn.linear_model
 import tensorflow as tf
-
-from tensorflow.python import pywrap_tensorflow
 
 FLAGS = tf.flags.FLAGS
 

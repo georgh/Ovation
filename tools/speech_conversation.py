@@ -1,25 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import queue
-import tempfile
-import wave
-import pyaudio
 import audioop
-import math
 import collections
 import contextlib
-import requests
-import urllib
-import urllib.parse as urlparse
-from urllib.parse import urlencode
 import json
-from gtts import gTTS
+import math
+import queue
+import urllib.parse as urlparse
+import wave
+from urllib.parse import urlencode
+
 import os
-import time
+import pyaudio
+import requests
+import tempfile
+from gtts import gTTS
 from pydub import AudioSegment
-
-
 
 threshold = 2.0 ** 16
 volume_normalization = 0.5
