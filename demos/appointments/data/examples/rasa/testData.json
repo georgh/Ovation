@@ -462,11 +462,11 @@
           }
         ]
       },
-      { 
+      {
         "text": "no, but how about saturday.",
         "intent": "positive",
         "entities": [
-          { 
+          {
             "start": 18,
             "end": 26,
             "value": "saturday",
@@ -587,7 +587,7 @@
           }
         ]
       },
-{
+      {
         "text": "no, i need an appointment on monday",
         "intent": "positive",
         "entities": [
@@ -659,7 +659,7 @@
           }
         ]
       },
-     {
+      {
         "text": "can you wait for a minute",
         "intent": "wait",
         "entities": []
@@ -724,7 +724,7 @@
         "intent": "wait",
         "entities": []
       },
-      { 
+      {
         "text": "wait please",
         "intent": "wait",
         "entities": []
@@ -758,7 +758,19 @@
         "text": "i am not able to hear you, can you repeat",
         "intent": "repeat",
         "entities": []
-      }	
+      },
+      {
+        "text": "only in the morning",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 12,
+            "end": 19,
+            "value": "morning",
+            "entity": "timespan"
+          }
+        ]
+      }
     ]
   }
 }

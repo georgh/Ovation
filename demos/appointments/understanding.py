@@ -12,7 +12,7 @@ from nltk.tokenize import wordpunct_tokenize
 
 
 model_directory = './models/default'
-config = RasaNLUConfig("config/config_mitie.json")
+config = RasaNLUConfig("config/config_mitie+sklearn.json")
 metadata = Metadata.load(model_directory)
 interpreter = Interpreter.load(metadata, config )
 
