@@ -1,24 +1,23 @@
-import os
-import pickle
 import datetime
-import datasets
-import tflearn
 
-import numpy as np
-import tensorflow as tf
 import matplotlib.pyplot as plt
+import numpy as np
+import os
 import pyqt_fit.nonparam_regression as smooth
+import tensorflow as tf
+import tflearn
+from model_template import Model
 from pyqt_fit import npr_methods
 from scipy.stats import pearsonr
 from sklearn.metrics import mean_squared_error
 from tensorflow.contrib.tensorboard.plugins import projector
 
+import datasets
 from datasets import AmazonReviewsGerman
 from datasets import id2seq
-from utils import ops
 from utils import losses
-from datasets import STS
-from model_template import Model
+from utils import ops
+
 
 def concatenate_matrices(matrix, embedded_input, batch_size):
     """

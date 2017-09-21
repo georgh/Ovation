@@ -1,8 +1,10 @@
 import os
-from datasets import STS
 from nose.tools import assert_equal
-from nose.tools import assert_not_equal
 from nose.tools import assert_is_instance
+from nose.tools import assert_not_equal
+
+from datasets import STS
+
 
 def setup_dataset(cl):
     ret = cl()

@@ -1,14 +1,12 @@
-import os
-import pickle
 import datetime
 
 import tensorflow as tf
 from tensorflow.contrib.legacy_seq2seq import basic_rnn_seq2seq
-
-from utils import ops
 from tensorflow.contrib.tensorboard.plugins import projector
 
 from models.model import Model
+from utils import ops
+
 
 class AcnerSeq2Seq(Model):
     """

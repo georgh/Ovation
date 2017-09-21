@@ -1,17 +1,15 @@
-import os
-import pickle
 import datetime
 
 import tensorflow as tf
-
-from utils import ops
-from utils import distances
-from utils import losses
 from scipy.stats import pearsonr
 from sklearn.metrics import mean_squared_error
 from tensorflow.contrib.tensorboard.plugins import projector
 
 from models.model import Model
+from utils import distances
+from utils import losses
+from utils import ops
+
 
 class SiameseCNNLSTM(Model):
     """

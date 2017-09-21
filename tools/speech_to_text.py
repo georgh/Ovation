@@ -8,6 +8,7 @@ import argparse
 # NOTE: this example requires PyAudio because it uses the Microphone class
 import speech_recognition as sr
 
+
 def parse_args():
     parser = argparse.ArgumentParser(
                 description="A simple Speech to Text engine")
