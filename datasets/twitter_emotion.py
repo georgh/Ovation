@@ -1,9 +1,9 @@
-import os
-import json
-import datasets
 import collections
 
+import os
 from tflearn.data_utils import to_categorical
+
+import datasets
 
 
 class TwitterEmotion(object):

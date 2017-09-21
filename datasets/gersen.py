@@ -1,11 +1,13 @@
-import os
-import csv
-import random
-import glob
 import collections
+import csv
+import glob
+
+import os
+import random
+from tflearn.data_utils import to_categorical
+
 import datasets
 
-from tflearn.data_utils import to_categorical
 
 class Gersen(object):
     def __init__(self, train_validate_split=None, test_split=None, use_defaults=False,

@@ -1,9 +1,11 @@
-import os
-import json
-import datasets
 import collections
+import json
 
+import os
 from tflearn.data_utils import to_categorical
+
+import datasets
+
 
 class HotelReviews(object):
     def __init__(self, train_validation_split=None, test_split=None,

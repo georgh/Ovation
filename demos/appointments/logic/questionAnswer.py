@@ -23,7 +23,7 @@ def countFirstSlots():
 def returnFirst():
     value = db.getFirstFree()
     if value is None:
-        return "There are no free appointments slots free in the next two weeks."
+        return "There are no more free appointments slots left."
     else:
         questions.append("first")
         questions.append(value)

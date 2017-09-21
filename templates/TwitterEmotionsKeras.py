@@ -1,11 +1,12 @@
-from keras.models import Sequential
+from keras.layers import Activation
+from keras.layers import Conv1D
 from keras.layers import Dense
 from keras.layers import Dropout
-from keras.layers import Activation
 from keras.layers import Embedding
 from keras.layers import LSTM
-from keras.layers import Conv1D
 from keras.layers import MaxPooling1D
+from keras.models import Sequential
+
 from datasets import TwitterEmotion
 
 # setup the dataset

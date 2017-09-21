@@ -1,19 +1,19 @@
-import os
 import datetime
-import datasets
-import tflearn
 
-import numpy as np
-import tensorflow as tf
 import matplotlib.pyplot as plt
+import numpy as np
+import os
 import pyqt_fit.nonparam_regression as smooth
+import tensorflow as tf
+import tflearn
+from pyqt_fit import npr_methods
 from scipy.stats import pearsonr
 from sklearn.metrics import mean_squared_error
 
+import datasets
 from datasets import AmazonReviewsGerman
 from datasets import HotelReviews
 from datasets import id2seq
-from pyqt_fit import npr_methods
 from models import SentenceSentimentRegressor
 
 # Model Parameters

@@ -1,15 +1,14 @@
-import os
 import datetime
-import tflearn
 
+import os
 import tensorflow as tf
+import tflearn
+from tflearn.data_utils import to_categorical
 
 from datasets import Acner
 from datasets import id2seq
-from models import AcnerSeq2Seq
 from datasets import onehot2seq
-
-from tflearn.data_utils import to_categorical
+from models import AcnerSeq2Seq
 
 # Model Parameters
 tf.flags.DEFINE_integer("embedding_dim", 300, "Dimensionality of character "

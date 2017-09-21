@@ -1,6 +1,8 @@
-import os
-import datasets
 import collections
+
+import os
+
+import datasets
 
 
 class STS(object):

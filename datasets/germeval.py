@@ -1,11 +1,13 @@
-import os
-import csv
-import random
 import collections
-import datasets
+import csv
 
-from datasets.acner import Acner
+import os
+import random
 from tflearn.data_utils import to_categorical
+
+import datasets
+from datasets.acner import Acner
+
 
 class Germeval(Acner):
     def __init__(self, train_validate_split=None, test_split=None,

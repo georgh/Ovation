@@ -1,20 +1,7 @@
-import os
-import datetime
-import datasets
-import tflearn
-
-import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
-import pyqt_fit.nonparam_regression as smooth
-from scipy.stats import pearsonr
-from sklearn.metrics import mean_squared_error
 
 from datasets import STS
 from datasets import Sick
-from datasets import id2seq
-from pyqt_fit import npr_methods
-from models import SiameseCNNLSTM
 from templates import sts_cnn_blstm
 
 FLAGS = tf.flags.FLAGS

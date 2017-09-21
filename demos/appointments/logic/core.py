@@ -58,9 +58,7 @@ def response(user_input):
     if intent == Intent.POSITIVE:
         # Apply restriction
         for entity in user_input.entities:
-            # if not pravinee.filter(entity) and entity.entity == 'day':
-
-            if entity.value == 'tomorrow':
+            if entity.entity == 'day':
                 restriction.apply(day=parser.convertStrToDatetime(entity.value).day, negative=True)
 
         # Return next question
@@ -71,10 +69,16 @@ def response(user_input):
     # User is accepting the proposed appointment
     if intent  == Intent.AFFIRM:
         # TODO remove from the list of calendar the now boooked appointment
-        return ResultObject(
-            "So the agent will call you " + parser.convertDatetimeToStr(
-                qa.getLastProposedTimeslot()) + ". Thank you and goodbye.",
-            SessionState.DONE)
+        if len(db.timeslots) != 0:
+            return ResultObject(
+                "So the agent will call you " + parser.convertDatetimeToStr(
+                    qa.getLastProposedTimeslot()) + ". Thank you and goodbye.",
+                SessionState.DONE)
+        else:
+            return ResultObject(
+                "Thank you for your call. However, with the current schedule we " +
+                "cannot satisfy your requests. Have a nice day!",
+                SessionState.DONE)
 
     ###########################################################################
     # REJECT

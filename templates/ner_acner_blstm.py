@@ -1,14 +1,13 @@
-import os
 import datetime
-import tflearn
 
+import os
 import tensorflow as tf
+import tflearn
 
 from datasets import Acner
 from datasets import id2seq
-from models import BLSTMAcner
 from datasets import onehot2seq
-
+from models import BLSTMAcner
 
 # Model Parameters
 tf.flags.DEFINE_integer("embedding_dim", 300, "Dimensionality of character "

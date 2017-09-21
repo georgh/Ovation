@@ -1,13 +1,12 @@
-import os
-import csv
-import random
 import collections
-
+import csv
 from builtins import len
 
-import datasets
-
+import os
+import random
 from tflearn.data_utils import to_categorical
+
+import datasets
 
 
 class Acner():
