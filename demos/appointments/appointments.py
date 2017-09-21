@@ -6,6 +6,7 @@ from stdio import StdIO
 from textio import TextIO
 from understanding import understand
 
+from datetime import datetime
 
 def listen_loop(io):
     while io.check():
@@ -20,6 +21,10 @@ def listen_loop(io):
 
             io.say(answer.text)
             session_state = answer.session_state
+
+def enter_test_mode():
+    import logic.parser
+    logic.parser.FAKE_NOW = datetime(2017, 9, 21, 14)
 
 
 def main():
@@ -47,6 +52,7 @@ def main():
     if args.text:
         listen_loop(StdIO())
     elif args.dialog:
+        enter_test_mode()
         with open(args.dialog) as infile:
             output_file=args.dialog + ".output"
             validate = not args.record and [line for line in open(output_file, "r").read().split("\n") if line] 
