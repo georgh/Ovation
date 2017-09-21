@@ -87,6 +87,11 @@
         "entities": []
       },
       {
+        "text": "this appointment does not suit me at all",
+        "intent": "reject",
+        "entities": []
+      },
+      {
         "text": "not okay",
         "intent": "reject",
         "entities": []
@@ -719,7 +724,7 @@
         "intent": "wait",
         "entities": []
       },
-      {
+      { 
         "text": "wait please",
         "intent": "wait",
         "entities": []
