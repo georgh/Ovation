@@ -67,12 +67,24 @@ def response(user_input):
         hour = []
         for entity in user_input.entities:
             # if not pravinee.filter(entity) and entity.entity == 'day':
-            val, status = parser.convertStrToDatetime(entity.value)
-            if entity.entity == 'day' or  entity.entity == 'date' and status:
-                    day += [val.day]
+            if entity.entity == 'hours':
+                before = "before" in entity.value[0] 
+                after = "after" in entity.value[0] 
 
-            if entity.entity == 'timespan':
-                hour += [parser.convertToRange(entity.value)]
+                if not before and not after:
+                    hour += [entity.value[1]]
+                elif before:
+                    hour += [(0, entity.value[1])]
+                else:
+                    hour += [(entity.value[1], 0)]
+                
+            else:
+                val, status = parser.convertStrToDatetime(entity.value)
+                if entity.entity == 'day' or entity.entity == 'date' and status:
+                        day += [val.day]
+
+                if entity.entity == 'timespan':
+                    hour += [parser.convertToRange(entity.value)]
 
         restriction.apply(day=day, hour=hour, negative=(intent == Intent.POSITIVE))
 
