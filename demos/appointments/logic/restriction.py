@@ -8,7 +8,7 @@ def apply(day=None, weekday=None, hour=None, negative=False):
     Example: weekday=[0,2] removes all mondays and wednesdays
     Parameter hour takes in additon a tuple.
     If given a tuple, all times between (start, end) are removed. End is excluded
-    Example: hour=[(1,4), 7] will remove all entries with 1 <= hour < 4 and hour==7
+    Example: hour=[(1,4), 7] will remove all entries with 1 <= hour <= 4 and hour==7
 
     You can also combine multiple restrictions:
     hour=5, weekday=1 removes the slot at 5 a clock tuesday
@@ -39,7 +39,7 @@ def apply(day=None, weekday=None, hour=None, negative=False):
                 for h in hour:
                     if (tsl.weekday() == w or w == None) and (tsl.day == d or d == None):
                         if isinstance(h, tuple):
-                            if (tsl.hour > h[0] and tsl.hour < h[1]):
+                            if (tsl.hour >= h[0] and tsl.hour <= h[1]):
                                 removeitems += [tsl]
                         elif h == None or tsl.hour == h:
                             removeitems += [tsl]
