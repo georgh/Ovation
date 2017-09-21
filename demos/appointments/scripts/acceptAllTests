@@ -1,0 +1,17 @@
+#/bin/bash
+
+shopt -s extglob
+
+cd $(dirname $0)/../dialogs
+dialogs=(!(*.output|*~))
+cd ..
+for dialog in ${dialogs[@]}
+do
+  echo "################"
+  echo "TESTING $dialog"
+  echo "################"
+  python appointments.py --dialog dialogs/$dialog --record
+done
+echo "################"
+echo "ALL TESTS FINISHED"
+echo "################"

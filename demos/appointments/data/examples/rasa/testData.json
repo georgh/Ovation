@@ -1,11 +1,5 @@
 {
   "rasa_nlu_data": {
-    "regex_features": [
-      {
-        "name": "zipcode",
-        "pattern": "[0-9]{5}"
-      }
-    ],
     "common_examples": [
       {
         "text": "good bye",
@@ -90,6 +84,11 @@
       {
         "text": "i am okay",
         "intent": "accept",
+        "entities": []
+      },
+      {
+        "text": "this appointment does not suit me at all",
+        "intent": "reject",
         "entities": []
       },
       {
@@ -463,6 +462,18 @@
           }
         ]
       },
+      { 
+        "text": "no, but how about saturday.",
+        "intent": "positive",
+        "entities": [
+          { 
+            "start": 18,
+            "end": 26,
+            "value": "saturday",
+            "entity": "day"
+          }
+        ]
+      },
       {
         "text": "no way. i'd like to come on tomorrow morning.",
         "intent": "positive",
@@ -481,7 +492,7 @@
           }
         ]
       },
-{
+      {
         "text": "I want to have an appointment with  my account manager",
         "intent": "appointment ",
         "entities": []
@@ -515,7 +526,239 @@
         "text": "can i have a phone call with my insurance agent",
         "intent": "appointment",
         "entities": []
-      }
+      },
+      {
+        "text": "no, i cannot come in the morning",
+        "intent": "negative",
+        "entities": [
+          {
+            "start": 25,
+            "end": 32,
+            "value": "morning",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "no, i am busy in the morning",
+        "intent": "negative",
+        "entities": [
+          {
+            "start": 21,
+            "end": 28,
+            "value": "morning",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "no, i have meeting in the afternoon",
+        "intent": "negative",
+        "entities": [
+          {
+            "start": 26,
+            "end": 35,
+            "value": "afternoon",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "it is not okay, i have classes in the evening",
+        "intent": "negative",
+        "entities": [
+          {
+            "start": 38,
+            "end": 45,
+            "value": "evening",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "I have training classes in the morning",
+        "intent": "negative",
+        "entities": [
+          {
+            "start": 31,
+            "end": 38,
+            "value": "morning",
+            "entity": "timespan"
+          }
+        ]
+      },
+{
+        "text": "no, i need an appointment on monday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 29,
+            "end": 35,
+            "value": "monday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, can i get on monday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 17,
+            "end": 23,
+            "value": "monday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, can i get it scheduled on friday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 30,
+            "end": 36,
+            "value": "friday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, can you make it on friday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 23,
+            "end": 29,
+            "value": "friday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "not okay,may i have the appointment on wednesday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 39,
+            "end": 48,
+            "value": "wednesday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, i like to get on saturday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 21,
+            "end": 29,
+            "value": "saturday",
+            "entity": "day"
+          }
+        ]
+      },
+     {
+        "text": "can you wait for a minute",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "can you please wait for a minute",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "I am busy, can you please wait",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "wait for a second",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "can you wait more",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "can you wait some more time",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "can you please repeat",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "come again",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "can you please come again",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "I did not understand",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "give me a minute",
+        "intent": "wait ",
+        "entities": []
+      },
+      {
+        "text": "just a second",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "one moment",
+        "intent": "wait",
+        "entities": []
+      },
+      { 
+        "text": "wait please",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "one moment please",
+        "intent": "wait",
+        "entities": []
+      },
+      {
+        "text": "I dint not understand, can you repeat please",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "what did you say",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "I did not get back",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "i did not hear, can you please repeat",
+        "intent": "repeat",
+        "entities": []
+      },
+      {
+        "text": "i am not able to hear you, can you repeat",
+        "intent": "repeat",
+        "entities": []
+      }	
     ]
   }
 }

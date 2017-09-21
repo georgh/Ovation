@@ -8,6 +8,8 @@ from understanding import understand
 
 from datetime import datetime
 
+import os
+
 class Session:
     def __init__(self, io):
         self.lastResponse = None
@@ -66,8 +68,11 @@ def main():
     elif args.dialog:
         enter_test_mode()
         with open(args.dialog) as infile:
-            output_file=args.dialog + ".output"
-            validate = not args.record and [line for line in open(output_file, "r").read().split("\n") if line] 
+            output_file = args.dialog + ".output"
+            if os.path.exists(output_file):
+                validate = not args.record and [line for line in open(output_file, "r").read().split("\n") if line] 
+            else:
+                validate = ' '
             backend = TextIO(infile)
             listen_loop(backend)
             if args.record:
