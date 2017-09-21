@@ -14,6 +14,7 @@ import os
 def listen_loop(io):
     session = Session(io)
     while io.check():
+        db.loadFromFile()
         session.say("I am the ovation insurance chatbot: how can I help you?")
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
