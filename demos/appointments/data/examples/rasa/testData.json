@@ -133,6 +133,21 @@
         "entities": []
       },
       {
+        "text": "fuck you",
+        "intent": "reject",
+        "entities": []
+      },
+      {
+        "text": "are you retarded?",
+        "intent": "reject",
+        "entities": []
+      },
+      {
+        "text": "stupid",
+        "intent": "reject",
+        "entities": []
+      },
+      {
         "text": "do you have something else",
         "intent": "reject",
         "entities": []
@@ -371,6 +386,60 @@
         ]
       },
       {
+        "text": "i am free in the afternoon",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 17,
+            "end": 25,
+            "value": "afternoon",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "i need something in the night",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 24,
+            "end": 28,
+            "value": "night",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "give me something in the evening",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 25,
+            "end": 31,
+            "value": "evening",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
+        "text": "please tomorrow morning",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "tomorrow",
+            "entity": "day"
+          },
+          {
+            "start": 16,
+            "end": 23,
+            "value": "morning",
+            "entity": "timespan"
+          }
+        ]
+      },
+      {
         "text": "no, but how about monday.",
         "intent": "positive",
         "entities": [
@@ -437,6 +506,11 @@
         "intent": "appointment",
         "entities": []
       },
+      {
+        "text": "give me something",
+        "intent": "appointment",
+        "entities": []
+      }
       {
         "text": "can i have a phone call with my insurance agent",
         "intent": "appointment",
