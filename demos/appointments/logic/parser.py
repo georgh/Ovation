@@ -78,6 +78,8 @@ def getNow():
             return datetime.now()
       
 def convertDatetimeToStr(date):
+      if date == None:
+            return "Error: Input is none"
       now = getNow()
       tomorrow = now + timedelta(days=1)
       if date.date() == datetime.today().date(): #is today
