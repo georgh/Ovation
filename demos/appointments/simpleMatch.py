@@ -21,6 +21,6 @@ def trivial_intent(sentence):
     global INTENT_MAP
     for (intent, words) in INTENT_MAP:
         if sentence in words:
-            return intent
-    return None
+            return intent, True
+    return None, False
         

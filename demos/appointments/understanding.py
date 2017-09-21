@@ -16,9 +16,12 @@ interpreter = Interpreter.load(metadata, config )
 
 def understand(sentence):
   sentence = sentence.lower()
-  intent = trivial_intent(sentence)
-  if intent:
+  intent, isTrivial = trivial_intent(sentence)
+  if isTrivial:
     return UserInput(sentence, intent)
+
+  #
+
 
   result = interpreter.parse(sentence)
   extraDates = [Entity(date, 'date') for date in findDates(sentence)]
