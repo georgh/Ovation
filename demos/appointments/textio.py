@@ -1,16 +1,21 @@
-import sys
-
 import os
+import sys
 
 
 class TextIO:
-    history = []
-
-    def __init__(self, file=sys.stdin):
+    history=[]
+    def __init__(self, file = sys.stdin):
+        print("Using Text")
         self.file = file
+        self.eof = False
+
+    def check(self):
+        self.readline_ahead()
+        return not self.eof
+        
 
     def waitForSentence(self):
-        if not self.file == sys.stdin or not os.isatty(0):  # read from file or use pipe
+        if not self.file == sys.stdin or not os.isatty(0): #read from file or use pipe
             line = self.readline()
             if line:
                 print("\x1b[1;30;42m" + "USR:" + "\033[0m " + line, flush=True)
@@ -19,9 +24,19 @@ class TextIO:
             line = self.readline()
         return line
 
-    def say(self, response):
+    def say(self,response):
         self.history.append(response)
-        print("\x1b[1;30;44m" + "BOT:" + "\033[0m " + response)
+        print("\x1b[1;30;44m" + "BOT:" + "\033[0m " + response )
 
+    def readline_ahead(self):
+        line = self.file.readline()
+        if not line:
+            self.eof = True
+        self.curr_line = line.split("\n")[0]
+
+    
     def readline(self):
-        return self.file.readline().split("\n")[0]
+        result = self.curr_line
+        self.readline_ahead()
+        return result
+
