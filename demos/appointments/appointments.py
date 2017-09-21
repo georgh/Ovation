@@ -8,7 +8,7 @@ from understanding import understand
 
 def listen_loop(io):
     while io.check():
-        io.say("Hello this is Ovation studio: how can we help you?")
+        io.say("this is Ovation studio: how can we help you?")
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
             sentence = io.waitForSentence()

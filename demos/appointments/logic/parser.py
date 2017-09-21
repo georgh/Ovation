@@ -45,7 +45,6 @@ def dateToStr(day, month):
             return "{}th of {}".format(day, calendar.month_name[month])
 
 def convertDatetimeToStr(date):
-      print(date)
       now = datetime.now()
       tomorrow = datetime.now() + timedelta(days=1)
       if date.date() == datetime.today().date(): #is today

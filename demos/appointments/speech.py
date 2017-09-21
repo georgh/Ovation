@@ -17,7 +17,7 @@ class Speech():
     def waitForSentence(self):
         while True:
             alts=audio.active_listen()
-            print("Alternatrives:", ", ".join(alts))
+            print("Alternatives:", ", ".join(alts))
             if alts and len(alts) > 0:
                 response=alts[0]
                 print("YOU:", response)

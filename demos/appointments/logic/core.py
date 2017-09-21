@@ -11,6 +11,8 @@ class Intent:
     BLABLA="Blabla"
     GREET="Greet"
     MAKE_AN_APPOINTMENT="Appointment"
+    POSITIVE="Positive"
+    NEGATIVE="Negative"
 
 
 class SessionState(Enum):
