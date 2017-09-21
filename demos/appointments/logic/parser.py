@@ -82,7 +82,7 @@ def convertDatetimeToStr(date):
             return "Error: Input is none"
       now = getNow()
       tomorrow = now + timedelta(days=1)
-      if date.date() == datetime.today().date(): #is today
+      if date.date() == now.date():  # is today
             hourdiff = date.hour - now.hour
             mindiff = date.minute - now.minute
             if hourdiff == 0:

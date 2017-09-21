@@ -14,6 +14,12 @@ def apply(day=None, weekday=None, hour=None, negative=False):
     hour=5, weekday=1 removes the slot at 5 a clock tuesday
     """
 
+    if len(day) == 0:
+        day = None
+
+    if len(hour) == 0:
+        hour = None
+
     # if we get an single instance, convert it to list:
     if not isinstance(day, list):
         day = [day]

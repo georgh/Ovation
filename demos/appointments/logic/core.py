@@ -66,7 +66,7 @@ def response(user_input):
             if entity.entity == 'timespan':
                 hour += [parser.convertToRange(entity.value)]
 
-        restriction.apply(day=day, hour=hour, negative= (intent == Intent.POSITIVE))
+        restriction.apply(day=day, hour=hour, negative=(intent == Intent.POSITIVE))
 
         # Return next question
         return ResultObject("Ok, let me see... " + qa.nextQuestion())
