@@ -11,7 +11,7 @@ def convertToRange(r):
       if r.lower() == "morning":
             return (0, 12)
       elif r.lower() == "afternoon":
-            return (12,24)
+            return (13,24)
       elif r.lower() == "evening":
             return (17,24)
       elif r.lower() == "night":
