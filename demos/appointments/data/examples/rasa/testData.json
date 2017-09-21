@@ -493,12 +493,12 @@
         ]
       },
       {
-        "text": "I want to have an appointment with  my account manager",
+        "text": "i want to have an appointment with  my account manager",
         "intent": "appointment ",
         "entities": []
       },
       {
-        "text": "I want to have an appointment with insurance consultant",
+        "text": "i want to have an appointment with insurance consultant",
         "intent": "appointment",
         "entities": []
       },
@@ -576,7 +576,7 @@
         ]
       },
       {
-        "text": "I have training classes in the morning",
+        "text": "i have training classes in the morning",
         "intent": "negative",
         "entities": [
           {
@@ -670,7 +670,7 @@
         "entities": []
       },
       {
-        "text": "I am busy, can you please wait",
+        "text": "i am busy, can you please wait",
         "intent": "wait",
         "entities": []
       },
@@ -705,7 +705,7 @@
         "entities": []
       },
       {
-        "text": "I did not understand",
+        "text": "i did not understand",
         "intent": "repeat",
         "entities": []
       },
@@ -735,7 +735,7 @@
         "entities": []
       },
       {
-        "text": "I dint not understand, can you repeat please",
+        "text": "i dint not understand, can you repeat please",
         "intent": "repeat",
         "entities": []
       },
@@ -745,7 +745,7 @@
         "entities": []
       },
       {
-        "text": "I did not get back",
+        "text": "i did not get back",
         "intent": "repeat",
         "entities": []
       },
@@ -777,17 +777,17 @@
         "entities": []
       },
       {
-        "text": "It is Perfect",
+        "text": "it is perfect",
         "intent": "accept",
         "entities": []
       },
       {
-        "text": "That works for me",
+        "text": "that works for me",
         "intent": "accept",
         "entities": []
       },
       {
-        "text": "Perfect",
+        "text": "perfect",
         "intent": "accept ",
         "entities": []
       },
@@ -797,27 +797,27 @@
         "entities": []
       },
       {
-        "text": "It is Perfect for me",
+        "text": "it is perfect for me",
         "intent": "accept",
         "entities": []
       },
       {
-        "text": "I can only after 5 o clock",
+        "text": "i can only after 5 o clock",
         "intent": "positive",
         "entities": []
       },
       {
-        "text": "I can only before 4 o'clock",
+        "text": "i can only before 4 o'clock",
         "intent": "positive",
         "entities": []
       },
       {
-        "text": "I cannot after 3 o'clock",
+        "text": "i cannot after 3 o'clock",
         "intent": "negative",
         "entities": []
       },
       {
-        "text": "I cannot before ten o clock",
+        "text": "i cannot before ten o clock",
         "intent": "negative",
         "entities": []
       },
@@ -827,12 +827,12 @@
         "entities": []
       },
       {
-        "text": "I cannot before ten o'clock",
+        "text": "i can not before one o'clock",
         "intent": "negative",
         "entities": []
       },
       {
-        "text": "I am sorry, that is not the option",
+        "text": "i am sorry, that is not the option",
         "intent": "reject",
         "entities": []
       }
