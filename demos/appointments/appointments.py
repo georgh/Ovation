@@ -6,6 +6,7 @@ from logic import database as db
 from stdio import StdIO
 from textio import TextIO
 from understanding import understand
+from logic import questionAnswer as qA
 
 from datetime import datetime
 
@@ -16,6 +17,7 @@ def listen_loop(io):
     while io.check():
         print("-"*80)
         db.loadFromFile()
+        qA.clear()
         session.say("I am the ovation insurance chatbot: how can I help you?")
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
