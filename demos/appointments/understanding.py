@@ -14,7 +14,7 @@ from nltk.tokenize import wordpunct_tokenize
 USESPLIT = False
 
 model_directory = './models/default'
-config = RasaNLUConfig("config/config_mitie+sklearn.json")
+config = RasaNLUConfig("config/config_mitie.json")
 metadata = Metadata.load(model_directory)
 interpreter = Interpreter.load(metadata, config )
 
@@ -44,9 +44,10 @@ def countIntentions(sen):
 
 def understand(sentence):
       sentence = sentence.lower()
-      intent, isTrivial = trivial_intent(sentence)
+      intent, entities, isTrivial = trivial_intent(sentence)
       if isTrivial:
-            return [UserInput(sentence, intent)]
+
+            return [UserInput(sentence, intent, [Entity(sentence, entity) for entity in entities])]
 
       #check if the user has more then one intention:
       if USESPLIT:
