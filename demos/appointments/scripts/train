@@ -7,5 +7,5 @@ if [[ -e models/default || "$1" == "-f" ]]
 then
     cd models
     rm -fv default
-    ln -sv $(ls | tail -1) default
+    ln -sv $(ls -tr | tail -1) default
 fi
