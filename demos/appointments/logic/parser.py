@@ -33,16 +33,30 @@ def timeToStr(hour, min):
       else:
             return "{}:{}".format(hour, min)
 
-def dateToStr(day, month):
+def dateToStr(day, month, weekdayNum):
+      if weekdayNum == 0:
+            dayname = "Monday"
+      elif weekdayNum == 1:
+            dayname = "Tuesday"
+      elif weekdayNum == 2:
+            dayname = "Wednesday"
+      elif weekdayNum == 3:
+            dayname = "Thursday"
+      elif weekdayNum == 4:
+            dayname = "Friday"
+      elif weekdayNum == 5:
+            dayname = "Saturday"
+      else:
+            dayname = "Sunday"
 
       if day == 1:
-            return "the first of {}".format(calendar.month_name[month])
+            return "{} the first of {}".format(dayname, calendar.month_name[month])
       elif day == 2:
-            return "the second of {}".format(calendar.month_name[month])
+            return "{} the second of {}".format(dayname, calendar.month_name[month])
       elif day == 3:
-            return "the third of {}".format(calendar.month_name[month])
+            return "{} the third of {}".format(dayname, calendar.month_name[month])
       else:
-            return "{}th of {}".format(day, calendar.month_name[month])
+            return "{} the {}th of {}".format(dayname, day, calendar.month_name[month])
 
 def convertDatetimeToStr(date):
       now = datetime.now()
@@ -56,7 +70,7 @@ def convertDatetimeToStr(date):
             return "tomorrow at {}".format(timeToStr(date.hour, date.minute))
 
       else:
-            return "on {} at {}".format(dateToStr(date.day, date.month), timeToStr(date.hour, date.minute))
+            return "{} at {}".format(dateToStr(date.day, date.month, date.weekday()), timeToStr(date.hour, date.minute))
 
       # date.day
       # date.month
