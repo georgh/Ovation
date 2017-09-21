@@ -2,7 +2,7 @@ from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.model import Metadata, Interpreter
 
 from logic.core import UserInput
-
+from simpleMatch import trivial_intent
 model_directory = './models/default'
 config = RasaNLUConfig("config/config_mitie.json")
 metadata = Metadata.load(model_directory)
@@ -10,7 +10,7 @@ interpreter = Interpreter.load(metadata, config )
 
 def understand(sentence):
   sentence =sentence.lower()
-  intent = None  # trivial_intent(sentence)
+  intent = trivial_intent(sentence)
   if intent:
     return UserInput(sentence, intent, [])
   
