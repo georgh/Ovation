@@ -1,149 +1,445 @@
-﻿{
+{
   "rasa_nlu_data": {
+    "regex_features": [
+      {
+        "name": "zipcode",
+        "pattern": "[0-9]{5}"
+      }
+    ],
     "common_examples": [
       {
-        "text": "Bye Bye",
-        "intent": "Exit",
+        "text": "good bye",
+        "intent": "exit",
         "entities": []
       },
       {
-        "text": "Good Bye",
-        "intent": "Exit",
+        "text": "bye bye",
+        "intent": "exit",
         "entities": []
       },
       {
-        "text": "Thanks, Good Bye",
-        "intent": "Exit",
+        "text": "good bye",
+        "intent": "exit",
         "entities": []
       },
       {
-        "text": "See You",
-        "intent": "Exit",
+        "text": "thanks, good bye",
+        "intent": "exit",
         "entities": []
       },
       {
-        "text": "Great, See you",
-        "intent": "Exit",
+        "text": "see you",
+        "intent": "exit",
         "entities": []
       },
       {
-        "text": "It is Okay",
-        "intent": "Accept",
+        "text": "great, see you",
+        "intent": "exit",
         "entities": []
       },
       {
-        "text": "That is Okay",
-        "intent": "Accept",
+        "text": "that's right",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "This is Okay for me",
-        "intent": "Accept",
+        "text": "right, thank you",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "That's Fine",
-        "intent": "Accept",
+        "text": "great choice",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "That suit's me well",
-        "intent": "Accept",
+        "text": "sounds really good",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "This is is acceptable",
-        "intent": "Accept",
+        "text": "it is okay",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "I am Okay",
-        "intent": "Accept",
+        "text": "that is okay",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "Perfect",
-        "intent": "Accept",
+        "text": "this is okay for me",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "Agreed",
-        "intent": "Accept",
+        "text": "that's fine",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "Okay",
-        "intent": "Accept",
+        "text": "that suit's me well",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "No",
-        "intent": "Reject",
+        "text": "this is is acceptable",
+        "intent": "accept",
         "entities": []
       },
       {
-        "text": "Nope",
-        "intent": "Reject",
+        "text": "i am okay",
+        "intent": "accept",
         "entities": []
       },
       {
         "text": "not okay",
-        "intent": "Reject",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "Oh no",
-        "intent": "Reject",
+        "text": "oh no",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "That does not work for me",
-        "intent": "Reject",
+        "text": "that does not work for me",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "This is not Possible for me",
-        "intent": "Reject",
+        "text": "this is not possible for me",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "No chance",
-        "intent": "Reject",
+        "text": "no chance",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "No way",
-        "intent": "Reject",
+        "text": "no way",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "Not Possible",
-        "intent": "Reject",
+        "text": "not possible",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "Not Good",
-        "intent": "Reject",
+        "text": "not good",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "Do you have something else",
-        "intent": "Reject",
+        "text": "do you have something else",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "Any other possiblility?",
-        "intent": "Reject",
+        "text": "any other possiblility?",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "That would be complicated",
-        "intent": "Reject",
+        "text": "that would be complicated",
+        "intent": "reject",
         "entities": []
       },
       {
-        "text": "I cannot manage that",
-        "intent": "Reject",
+        "text": "i cannot manage that",
+        "intent": "reject",
+        "entities": []
+      },
+      {
+        "text": "i want to have a telephon call with my agent",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "can i have an appointment",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "make an appointment",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "is it possible for appointment",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "can you give me some appointment",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "may i have an appointment",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "i need an appointment today",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "can you schedule an appointment for today",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "give me an appointment for today",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "is an appointment slot  free",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "give me an appointment for monday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 33,
+            "value": "monday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "give me an appointment for tuesday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 34,
+            "value": "tuesday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "give me an appointment for wednesday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 36,
+            "value": "wednesday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "give me an appointment for thursday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 35,
+            "value": "thursday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "give me an appointment for friday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 33,
+            "value": "friday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "give me an appointment for saturday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 35,
+            "value": "saturday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "give me an appointment for sunday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 27,
+            "end": 33,
+            "value": "sunday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "make an appointment for sunday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 24,
+            "end": 30,
+            "value": "sunday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "make an appointment for tuesday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 24,
+            "end": 31,
+            "value": "tuesday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "make an appointment for wednesday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 24,
+            "end": 33,
+            "value": "wednesday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "make an appointment for thursday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 24,
+            "end": 32,
+            "value": "thursday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "make an appointment for friday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 24,
+            "end": 30,
+            "value": "friday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "make an appointment for saturday",
+        "intent": "appointment",
+        "entities": [
+          {
+            "start": 24,
+            "end": 32,
+            "value": "saturday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, but how about tomorrow.",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 18,
+            "end": 26,
+            "value": "tomorrow",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, but how about monday.",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 18,
+            "end": 24,
+            "value": "monday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no, but how about saturday.",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 18,
+            "end": 26,
+            "value": "saturday",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "no way. i'd like to come on tomorrow morning.",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 37,
+            "end": 44,
+            "value": "morning",
+            "entity": "timespan"
+          },
+          {
+            "start": 28,
+            "end": 36,
+            "value": "tomorrow",
+            "entity": "day"
+          }
+        ]
+      },
+{
+        "text": "I want to have an appointment with  my account manager",
+        "intent": "Appointment ",
+        "entities": []
+      },
+      {
+        "text": "I want to have an appointment with insurance consultant",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "i want to talk to my account manager",
+        "intent": "Appointment ",
+        "entities": []
+      },
+      {
+        "text": "i want to talk to my insurance manager",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "can i have a phone call with my account manager",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "can i have a phone call with my insurance agent",
+        "intent": "Appointment",
         "entities": []
       }
     ]
