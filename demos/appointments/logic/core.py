@@ -104,7 +104,10 @@ def response(user_input):
     # User directly rejected the proposed appointment
     if intent == Intent.REJECT:
         # remove the last proposed slot from the list
-        db.remove(qa.getLastProposedTimeslot())
+        sl = qa.getLastProposedTimeslot()
+        if sl == None:
+            return ResultObject("No? WTF?.", SessionState.CONTINUE)
+        db.remove(sl)
         return ResultObject(qa.nextQuestion(), SessionState.CONTINUE)
 
     ###########################################################################
