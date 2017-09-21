@@ -12,9 +12,6 @@ INTENT_MAP=[
     ]),
     (Intent.REJECT, [
         "no", "nope", 
-    ]),
-    (Intent.GREET, [
-        "hey", "howdy", "hello", "hi"
     ])
 ]
 

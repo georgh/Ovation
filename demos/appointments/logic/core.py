@@ -5,15 +5,21 @@ import logic.questionAnswer as qa
 
 
 class Intent:
-    AFFIRM="Accept"
-    REJECT="Reject"
-    GOODBYE="Exit"
-    BLABLA="Blabla"
-    GREET="Greet"
-    MAKE_AN_APPOINTMENT="Appointment"
-    POSITIVE="Positive"
-    NEGATIVE="Negative"
+    AFFIRM="accept"
+    REJECT="reject"
+    GOODBYE="exit"
+    BLABLA="blabla"
+    MAKE_AN_APPOINTMENT="appointment"
+    POSITIVE="positive"
+    NEGATIVE="negative"
 
+class Entity:
+    def __init__(self, value, entity):
+        self.entity = entity
+        self.value = value
+
+    def __repr__(self):
+        return "{}: '{}'".format(self.entity, self.value)
 
 class SessionState(Enum):
     DONE = 0
@@ -37,14 +43,8 @@ class ResultObject:
 # The input is a json object returned by RASA
 def response(user_input):
     intent = user_input.intent
-    print("Intent:", intent,)
-
-    # new Session starts and a we prepare a new fresh state for a new user
-    if intent  == Intent.GREET:
-        qa.clear()
-        db.clear()
-        db.loadFromFile()
-
+    print("Intent:", intent, user_input.entities)
+    
     # User want to schedule an appointment
     if intent == Intent.MAKE_AN_APPOINTMENT:
         return ResultObject(qa.nextQuestion())
