@@ -12,7 +12,7 @@ def listen_loop(io):
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
             sentence = io.waitForSentence()
-            if io.eof:
+            if not sentence:
                 return
 
             answer = core.response(understand(sentence))

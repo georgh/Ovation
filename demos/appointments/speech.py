@@ -6,14 +6,13 @@ class Speech():
     def __init__(self):
         print ("Using Speech")
         audio.init_threshold()
-        self.eof = False
 
     def check(self):
         print("Listening for keyword '", audio.keyword, "'", sep="")
         line = audio.passive_listen()
         if line:
             print("YOU:", line)
-        return "en"
+        return True
 
     def waitForSentence(self):
         while True:
