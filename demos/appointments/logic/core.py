@@ -57,12 +57,19 @@ def response(user_input):
     # User is proposing a positive restriction
     if intent == Intent.POSITIVE:
         # Apply restriction
-        for entity in user_input.entities:
-            # if not pravinee.filter(entity) and entity.entity == 'day':
-
+        if len(user_input.entities) == 1:
+            entity = user_input.entities[0]
             val, status = parser.convertStrToDatetime(entity.value)
             if entity.entity == 'day' or  entity.entity == 'date' and status:
                     restriction.apply(day=val.day, negative=True)
+
+        else:
+            for entity in user_input.entities:
+                # if not pravinee.filter(entity) and entity.entity == 'day':
+
+                val, status = parser.convertStrToDatetime(entity.value)
+                if entity.entity == 'day' or  entity.entity == 'date' and status:
+                        restriction.apply(day=val.day, negative=True)
 
         # Return next question
         return ResultObject("Ok, let me see... " + qa.nextQuestion())
