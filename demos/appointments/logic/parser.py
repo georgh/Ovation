@@ -2,7 +2,20 @@ import calendar
 from datetime import datetime, timedelta
 
 import parsedatetime as pdt  # $ pip install parsedatetime
+
 FAKE_NOW = None
+
+
+def convertToRange(r):
+      # timespans = ["morning", "afternoon", "evening", "night"]
+      if r.lower() == "morning":
+            return (0, 12)
+      elif r.lower() == "afternoon":
+            return (12,24)
+      elif r.lower() == "evening":
+            return (17,24)
+      elif r.lower() == "night":
+            return (20,24)
 
 def convertStrToDatetime(time_string):
       cal = pdt.Calendar()
