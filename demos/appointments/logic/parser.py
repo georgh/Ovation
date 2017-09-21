@@ -8,8 +8,10 @@ def convertStrToDatetime(time_string):
       cal = pdt.Calendar()
       time_struct, parse_status = cal.parse(time_string)
       # print("%s:\t%s" % (time_string, datetime(*time_struct[:6])))
-      return datetime(*time_struct[:6])
-
+      if parse_status:
+            return datetime(*time_struct[:6]), True
+      else:
+            return None, False
 def timeToStr(hour, min):
 
       if min == 0:
@@ -27,7 +29,7 @@ def timeToStr(hour, min):
       else:
             return "{}:{}".format(hour, min)
 
-def dateToStr(day, month, weekdayNum):
+def getWeekdayName(weekdayNum):
       if weekdayNum == 0:
             dayname = "Monday"
       elif weekdayNum == 1:
@@ -42,7 +44,10 @@ def dateToStr(day, month, weekdayNum):
             dayname = "Saturday"
       else:
             dayname = "Sunday"
+      return dayname 
 
+def dateToStr(day, month, weekdayNum):
+      dayname = getWeekdayName(weekdayNum)
       if day == 1:
             return "{} the first of {}".format(dayname, calendar.month_name[month])
       elif day == 2:
@@ -68,19 +73,6 @@ def convertDatetimeToStr(date):
       else:
             return "{} at {}".format(dateToStr(date.day, date.month, date.weekday()), timeToStr(date.hour, date.minute))
 
-      # date.day
-      # date.month
-      # date.year
-      # date.weekday()
-      # date.minute
-      # date.hour
-
-      # #check for today
-      # #skip today and say in XX hours/XXminutes
-      # #check for tomoorw
-      # #check for next week
-
-      # {tomorrow/next week/on XX.XX} at {X a clock/half past X/XX:XX}
 
 
 
