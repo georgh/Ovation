@@ -46,7 +46,6 @@ def understand(sentence):
       sentence = sentence.lower()
       intent, entities, isTrivial = trivial_intent(sentence)
       if isTrivial:
-
             return [UserInput(sentence, intent, [Entity(sentence, entity) for entity in entities])]
 
       #check if the user has more then one intention:
