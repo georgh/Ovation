@@ -396,7 +396,7 @@
       },
       {
         "text": "no way. i'd like to come on tomorrow morning.",
-        "intent": "",
+        "intent": "positive",
         "entities": [
           {
             "start": 37,
