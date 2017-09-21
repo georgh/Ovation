@@ -14,13 +14,19 @@ config = RasaNLUConfig("config/config_mitie.json")
 metadata = Metadata.load(model_directory)
 interpreter = Interpreter.load(metadata, config )
 
+def countIntentions(sen):
+      return 1
+
+
 def understand(sentence):
   sentence = sentence.lower()
   intent, isTrivial = trivial_intent(sentence)
   if isTrivial:
     return UserInput(sentence, intent)
 
-  #
+  #check if the user has more then one intention:
+  c = countIntentions(sentence)
+
 
 
   result = interpreter.parse(sentence)
