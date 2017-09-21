@@ -42,7 +42,7 @@ def main():
         listen_loop(TextIO())
     elif args.dialog:
         with open(args.dialog) as infile:
-            validate = open(args.dialog + ".output", "r").read().split("\n")
+            validate = [line for line in open(args.dialog + ".output", "r").read().split("\n") if line]
             backend = TextIO(infile)
             listen_loop(backend)
             if validate != backend.history:
