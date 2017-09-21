@@ -1,7 +1,7 @@
 #import logic.core as l
-from logic.core import Intent
 import re
 
+from logic.core import Intent
 
 INTENT_MAP=[
     (Intent.GOODBYE, [

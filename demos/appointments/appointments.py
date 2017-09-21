@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from logic import core
 from logic import database as db
-from textio import TextIO
 from stdio import StdIO
+from textio import TextIO
 from understanding import understand
 
 
