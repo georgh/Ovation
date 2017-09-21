@@ -9,7 +9,7 @@ from understanding import understand
 
 def listen_loop(io):
     while io.check():
-        io.say("this is Ovation studio: how can we help you?")
+        io.say("I am the ovation insurance chatbot: how can I help you?")
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
             sentence = io.waitForSentence()
