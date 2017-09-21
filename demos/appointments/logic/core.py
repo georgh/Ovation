@@ -42,7 +42,7 @@ class ResultObject:
 # The input is a json object returned by RASA
 def response(user_input):
     intent = user_input.intent
-    print("Intent:", intent, user_input.entities)
+    # print("Intent:", intent, user_input.entities)
     user_input.entities = entityFilter.filterList(user_input.entities)
     # print("(filtered)Intent:", intent, user_input.entities)
 
@@ -53,19 +53,22 @@ def response(user_input):
         return ResultObject(qa.nextQuestion())
 
     ###########################################################################
-    # POSITIVE
+    # POSITIVE OR NEGATIVE
     # User is proposing a positive restriction
-    if intent == Intent.POSITIVE:
+    if intent == Intent.POSITIVE or intent == Intent.NEGATIVE:
         # Apply restriction
         day = []
         hour = []
-        weekday = []
         for entity in user_input.entities:
+            # if not pravinee.filter(entity) and entity.entity == 'day':
             val, status = parser.convertStrToDatetime(entity.value)
-            if entity.entity == 'day' or entity.entity == 'date' and status:
-                day.append(val.day)
+            if entity.entity == 'day' or  entity.entity == 'date' and status:
+                    day += [val.day]
 
-        restriction.apply(day=day, negative=True)
+            if entity.entity == 'timespan':
+                hour += [parser.convertToRange(entity.value)]
+
+        restriction.apply(day=day, hour=hour, negative= (intent == Intent.POSITIVE))
 
         # Return next question
         return ResultObject("Ok, let me see... " + qa.nextQuestion())

@@ -1,6 +1,6 @@
 days = ["monday", "tuesday", "wednesday",
         "thursday", "friday", "saturday",
-        "sunday", "tomorrow", "yesterday"]
+        "sunday", "tomorrow", "today"]
 timespans = ["morning", "afternoon", "evening", "night"]
 
 DAY = 1
@@ -25,7 +25,7 @@ def filterList(entity_list):
     for entity in entity_list:
         if entity.entity.lower() == "day" and valid_entity(DAY, entity.value.lower()):
             filteredList.append(entity)
-        if entity.entity.lower() == "timespans" and valid_entity(TIMESPAN, entity.value.lower()):
+        if entity.entity.lower() == "timespan" and valid_entity(TIMESPAN, entity.value.lower()):
             filteredList.append(entity)
         if entity.entity.lower() == "date":
             filteredList.append(entity)

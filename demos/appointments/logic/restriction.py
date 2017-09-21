@@ -24,6 +24,8 @@ def apply(day=None, weekday=None, hour=None, negative=False):
     if not isinstance(weekday, list):
         weekday = [weekday]
 
+    # print("RESTRICTION: {} {} {} {}".format(day, weekday, hour, negative))
+
     removeitems = []
     for tsl in db.timeslots:
         for w in weekday:
