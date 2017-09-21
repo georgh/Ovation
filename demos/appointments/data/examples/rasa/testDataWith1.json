@@ -1,0 +1,327 @@
+{
+  "rasa_nlu_data": {
+      "common_examples": [
+	        {
+        "text": "bye", 
+        "intent": "Exit", 
+        "entities": []
+      }, 
+      {
+        "text": "goodbye", 
+        "intent": "Exit", 
+        "entities": []
+      }, 
+      {
+        "text": "good bye", 
+        "intent": "Exit", 
+        "entities": []
+      }, 
+      {
+        "text": "stop", 
+        "intent": "Exit", 
+        "entities": []
+      }, 
+      {
+        "text": "end", 
+        "intent": "Exit", 
+        "entities": []
+      },
+      {
+        "text": "farewell",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "Bye Bye",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "Good Bye",
+        "intent": "Exit",
+        "entities": []
+      },
+	{
+	    "text": "Goodbye",
+            "intent": "Exit",
+            "entities": []
+	},
+
+      {
+        "text": "Thanks, Good Bye",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "See You",
+        "intent": "Exit",
+        "entities": []
+      },
+      {
+        "text": "Great, See you",
+        "intent": "Exit",
+        "entities": []
+      },
+	      {
+        "text": "yes", 
+        "intent": "Accept", 
+        "entities": []
+      }, 
+      {
+        "text": "yep", 
+        "intent": "Accept", 
+        "entities": []
+      }, 
+      {
+        "text": "yeah", 
+        "intent": "Accept", 
+        "entities": []
+      },
+      {
+        "text": "indeed",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "that's right",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "ok",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "great",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "right, thank you",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "correct",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "great choice",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "sounds really good",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "It is Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "That is Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "This is Okay for me",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "That's Fine",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "That suit's me well",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "This is is acceptable",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "I am Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "Perfect",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "Agreed",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "Okay",
+        "intent": "Accept",
+        "entities": []
+      },
+      {
+        "text": "No",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Nope",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "not okay",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Oh no",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "That does not work for me",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "This is not Possible for me",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "No chance",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "No way",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Not Possible",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Not Good",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Do you have something else",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "Any other possiblility?",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "That would be complicated",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "I cannot manage that",
+        "intent": "Reject",
+        "entities": []
+      },
+      {
+        "text": "I want to have a telephon call with my agent",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "can i have an appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Is it possible for appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "can you give me some appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "May I have an appointment",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "I need an appointment today",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Can you schedule an appointment for today",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Give me an appointment for today",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+        "text": "Is an appointment slot  free",
+        "intent": "Appointment",
+        "entities": []
+      },
+      {
+       "text": "hey", 
+        "intent": "Greet", 
+        "entities": []
+      },
+	      {
+        "text": "howdy", 
+        "intent": "Greet", 
+        "entities": []
+      }, 
+      {
+        "text": "hey there",
+        "intent": "Greet", 
+        "entities": []
+      }, 
+      {
+        "text": "hello", 
+        "intent": "Greet", 
+        "entities": []
+      }, 
+      {
+        "text": "hi", 
+        "intent": "Greet", 
+        "entities": []
+      },
+      {
+        "text": "good morning",
+        "intent": "Greet",
+        "entities": []
+      },
+      {
+        "text": "good evening",
+        "intent": "Greet",
+        "entities": []
+      },
+      {
+        "text": "dear sir",
+        "intent": "Greet",
+        "entities": []
+      }
+    ]
+  }
+}
