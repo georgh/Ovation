@@ -8,10 +8,11 @@ class Speech():
         audio.init_threshold()
         self.eof = False
 
-    def initConversation(self):
+    def check(self):
         print("Listening for keyword '", audio.keyword, "'", sep="")
-        line = audio.passive_listen()        
-        print("YOU:", line)
+        line = audio.passive_listen()
+        if line:
+            print("YOU:", line)
         return "en"
 
     def waitForSentence(self):
