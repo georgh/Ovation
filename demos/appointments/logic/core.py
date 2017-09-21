@@ -61,7 +61,7 @@ def response(user_input):
             # if not pravinee.filter(entity) and entity.entity == 'day':
 
             val, status = parser.convertStrToDatetime(entity.value)
-            if entity.entity == 'day' and status:
+            if entity.entity == 'day' or  entity.entity == 'date' and status:
                     restriction.apply(day=val.day, negative=True)
 
         # Return next question

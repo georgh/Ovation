@@ -27,4 +27,6 @@ def filterList(entity_list):
             filteredList.append(entity)
         if entity.entity.lower() == "timespans" and valid_entity(TIMESPAN, entity.value.lower()):
             filteredList.append(entity)
+        if entity.entity.lower() == "date":
+            filteredList.append(entity)
     return filteredList
