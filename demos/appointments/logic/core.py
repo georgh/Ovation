@@ -29,7 +29,6 @@ class SessionState(Enum):
     CONTINUE = 1
     WAIT = 2
 
-
 class UserInput:
     def __init__(self, text=None, intent=None, entities=[]):
         self.text = text

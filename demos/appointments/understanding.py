@@ -5,7 +5,7 @@ from extractDates import findDates
 from logic.core import UserInput, Entity
 from logic.entityFilter import entityIsValid
 from simpleMatch import trivial_intent
-from extractDates import findDates
+from extractDates import findDates, findTime
 
 from nltk.corpus import stopwords
 from nltk.tokenize import wordpunct_tokenize
@@ -59,11 +59,12 @@ def understand(sentence):
       for sen in splittedSentence:
             result = interpreter.parse(sen)
             extraDates = [Entity(date, 'date') for date in findDates(sen)]
+            extraTimes = [Entity(hour, 'hours') for hour in findTime(sen)]
             entities = [Entity(item['value'], item['entity']) for item in result["entities"]]
             entities = [entity for entity in entities if entityIsValid(entity)]
       if "intent" in result:
             resultingInputs += [UserInput(sen, result["intent"]["name"],
-                     extraDates + entities)]
+                     extraDates + extraTimes + entities)]
       # else:
       #   resultingInputs += [UserInput(sen, Intent.BLABLA)]
       if len(resultingInputs) == 0:
