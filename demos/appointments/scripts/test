@@ -10,7 +10,7 @@ do
   echo "################"
   echo "TESTING $dialog"
   echo "################"
-  ./appointments.py --dialog dialogs/$dialog
+  python appointments.py --dialog dialogs/$dialog
 done
 echo "################"
 echo "ALL TESTS FINISHED"
