@@ -8,7 +8,7 @@ year="(201[7-9])"
 
 pattern=".*?".join([concrete_day, month, year + "?"])
 date_regex=re.compile(pattern)
-time_regex1=re.compile("([0-9]+) o clock")
+time_regex1=re.compile("([0-9]+) o[' ]clock")
 time_regex2=re.compile("([0-9]+) hours")
 
 def findMatches(regex, sentence, group=0):
