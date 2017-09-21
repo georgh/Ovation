@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from logic import core
+from session import Session
 from logic import database as db
 from stdio import StdIO
 from textio import TextIO
@@ -9,18 +10,6 @@ from understanding import understand
 from datetime import datetime
 
 import os
-
-class Session:
-    def __init__(self, io):
-        self.lastResponse = None
-        self.io = io
-
-    def say(self,response):
-        self.lastResponse = response
-        self.io.say(response)
-
-    def handleMetaCommand(self, userInput):
-        return None
 
 def listen_loop(io):
     session = Session(io)
@@ -35,6 +24,7 @@ def listen_loop(io):
             answer = session.handleMetaCommand(userInput) or core.response(userInput)
             session.say(answer.text)
             session_state = answer.session_state
+                
 
 def enter_test_mode():
     import logic.parser

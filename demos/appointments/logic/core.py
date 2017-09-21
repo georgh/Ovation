@@ -27,6 +27,7 @@ class Entity:
 class SessionState(Enum):
     DONE = 0
     CONTINUE = 1
+    WAIT = 2
 
 
 class UserInput:
