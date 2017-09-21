@@ -43,6 +43,12 @@ class ResultObject:
 
 # The input is a json object returned by RASA
 def response(user_input):
+
+    # if len(user_input) == 1:
+    user_input = user_input[0]
+    # else:
+
+
     intent = user_input.intent
     print("Intent:", intent, user_input.entities)
 

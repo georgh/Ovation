@@ -41,7 +41,7 @@ def getLastProposedTimeslot():
 
 
 def nextQuestion():
-    if countFirstSlots() < 2:
+    if countFirstSlots() < 1:
         return returnFirst()
 
     scores = db.queryScores()

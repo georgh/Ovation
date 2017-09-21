@@ -5,8 +5,10 @@ from extractDates import findDates
 from logic.core import UserInput, Entity
 from logic.entityFilter import entityIsValid
 from simpleMatch import trivial_intent
-from extractDates import findDates, findTime
+from extractDates import findDates
 
+from nltk.corpus import stopwords
+from nltk.tokenize import wordpunct_tokenize
 
 
 model_directory = './models/default'
@@ -15,27 +17,50 @@ metadata = Metadata.load(model_directory)
 interpreter = Interpreter.load(metadata, config )
 
 def countIntentions(sen):
-      return 1
+      stop_words =  set(["but"]) #set(stopwords.words('english'))
+      stop_words.update(['.', ',', '?', '!', ':', ';']) # remove it if you need punctuation 
+      list_of_words = sen.split
+
+      current = [sen]
+
+      for w in stop_words:
+            #print(str(current)+ " stopwords: "+ w)
+            newset = []
+            for s in current:
+                  sp = s.split(w)
+                  if len(sp) > 1:
+                        newset += [x.strip() for x in sp]
+                  else:
+                        newset += [s.strip()]
+            current = newset
+      current = list(filter(None, current)) #filter empty
+      # . , : ;               
+      #stopwords: 
+      print(current)
+      return len(current), current
 
 
 def understand(sentence):
-  sentence = sentence.lower()
-  intent, isTrivial = trivial_intent(sentence)
-  if isTrivial:
-    return UserInput(sentence, intent)
+      sentence = sentence.lower()
+      intent, isTrivial = trivial_intent(sentence)
+      if isTrivial:
+            return [UserInput(sentence, intent)]
 
-  #check if the user has more then one intention:
-  c = countIntentions(sentence)
+      #check if the user has more then one intention:
+      c, splittedSentence = countIntentions(sentence)
 
-
-
-  result = interpreter.parse(sentence)
-  extraDates = [Entity(date, 'date') for date in findDates(sentence)]
-  extraTimes = [Entity(clock, 'hour') for clock in findTime(sentence)]
-  entities=[Entity(item['value'], item['entity']) for item in result["entities"]]
-  entities=[entity for entity in entities if entityIsValid(entity)]
-  if "intent" in result:
-    return UserInput(sentence, result["intent"]["name"],
-                     extraDates + extraTimes + entities)
-  else:
-    return UserInput(sentence, Intent.BLABLA)
+      resultingInputs = []
+      for sen in splittedSentence:
+            result = interpreter.parse(sen)
+            extraDates = [Entity(date, 'date') for date in findDates(sen)]
+            entities = [Entity(item['value'], item['entity']) for item in result["entities"]]
+            entities = [entity for entity in entities if entityIsValid(entity)]
+      if "intent" in result:
+            resultingInputs += [UserInput(sen, result["intent"]["name"],
+                     extraDates + entities)]
+      # else:
+      #   resultingInputs += [UserInput(sen, Intent.BLABLA)]
+      if len(resultingInputs) == 0:
+            return [UserInput(sen, Intent.BLABLA)]
+      else:
+            return resultingInputs
