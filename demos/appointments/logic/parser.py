@@ -55,9 +55,10 @@ def convertDatetimeToStr(date):
       tomorrow = datetime.now() + timedelta(days=1)
       if date.date() == datetime.today().date(): #is today
             hourdiff = date.hour - now.hour
-            mindiff = date.min - now.min
-            return "today at {}. That's in {} hours and {} minutes".format(timeToStr(date.hour, date.minute), hourdiff,
-                                                                           mindiff)
+            mindiff = date.minute - now.minute
+            if hourdiff == 0:
+                return "today at {}. That's in {} minutes.".format(timeToStr(date.hour, date.minute), mindiff)
+            return "today at {}. That's in about {} hours".format(timeToStr(date.hour, date.minute), hourdiff)
 
       elif date.date() == tomorrow.date():
             return "tomorrow at {}".format(timeToStr(date.hour, date.minute))
