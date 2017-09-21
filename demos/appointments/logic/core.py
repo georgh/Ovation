@@ -1,4 +1,5 @@
 from enum import Enum
+from logic.entityFilter import EntityFilter
 
 import logic.database as db
 import logic.questionAnswer as qa
@@ -44,7 +45,8 @@ class ResultObject:
 def response(user_input):
     intent = user_input.intent
     print("Intent:", intent, user_input.entities)
-    
+    #print("Filtered entities:", str(EntityFilter.filterList(user_input.entities)))   
+ 
     # User want to schedule an appointment
     if intent == Intent.MAKE_AN_APPOINTMENT:
         return ResultObject(qa.nextQuestion())
