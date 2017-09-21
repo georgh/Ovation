@@ -10,6 +10,7 @@ pattern=".*?".join([concrete_day, month, year + "?"])
 date_regex=re.compile(pattern)
 time_regex1=re.compile("(after|before)? ([0-9]+) o'? ?clock")
 time_regex2=re.compile("() ([0-9]+) hours")
+time_regex3=re.compile("(after|before) ([0-9]+)")
 
 def findMatches(regex, sentence):
     global regexs
@@ -40,7 +41,7 @@ def findDates(sentence):
 def findTime(sentence):
     result=[]
     
-    for time_regex in [time_regex1, time_regex2]:
+    for time_regex in [time_regex1, time_regex2, time_regex3]:
         for time in findMatches(time_regex, sentence):
             print ("time", time)
             result.append( (time.group(1), int(time.group(2))))
