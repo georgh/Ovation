@@ -414,32 +414,32 @@
       },
 {
         "text": "I want to have an appointment with  my account manager",
-        "intent": "Appointment ",
+        "intent": "appointment ",
         "entities": []
       },
       {
         "text": "I want to have an appointment with insurance consultant",
-        "intent": "Appointment",
+        "intent": "appointment",
         "entities": []
       },
       {
         "text": "i want to talk to my account manager",
-        "intent": "Appointment ",
+        "intent": "appointment ",
         "entities": []
       },
       {
         "text": "i want to talk to my insurance manager",
-        "intent": "Appointment",
+        "intent": "appointment",
         "entities": []
       },
       {
         "text": "can i have a phone call with my account manager",
-        "intent": "Appointment",
+        "intent": "appointment",
         "entities": []
       },
       {
         "text": "can i have a phone call with my insurance agent",
-        "intent": "Appointment",
+        "intent": "appointment",
         "entities": []
       }
     ]
