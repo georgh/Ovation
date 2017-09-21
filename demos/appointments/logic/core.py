@@ -76,7 +76,7 @@ def response(user_input):
                 elif before:
                     hour += [(0, entity.value[1])]
                 else:
-                    hour += [(entity.value[1], 0)]
+                    hour += [(entity.value[1], 24)]
                 
             else:
                 val, status = parser.convertStrToDatetime(entity.value)
