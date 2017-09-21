@@ -39,8 +39,6 @@ def queryScores():
     "morning or Afternoon"
     "which day" 
     "this or next week" 
-
-   
     '''
     days = np.zeros(shape=(7,1))
     countAfternoon = 0
@@ -57,7 +55,8 @@ def queryScores():
             week[2] += 1
 
     moAf = min(len(timeslots) - countAfternoon, countAfternoon)
-    return [moAf, np.min(days), np.min(week)]
+    days[days == np.max(days)] = 0
+    return [moAf, np.mean(days), np.min(week)]
 
 
 def saveToFile():
