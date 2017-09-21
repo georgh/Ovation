@@ -770,6 +770,71 @@
             "entity": "timespan"
           }
         ]
+      },
+      {
+        "text": "very good",
+        "intent": "accept",
+        "entities": []
+      },
+      {
+        "text": "It is Perfect",
+        "intent": "accept",
+        "entities": []
+      },
+      {
+        "text": "That works for me",
+        "intent": "accept",
+        "entities": []
+      },
+      {
+        "text": "Perfect",
+        "intent": "accept ",
+        "entities": []
+      },
+      {
+        "text": "can i have an human agent, call me back",
+        "intent": "appointment",
+        "entities": []
+      },
+      {
+        "text": "It is Perfect for me",
+        "intent": "accept",
+        "entities": []
+      },
+      {
+        "text": "I can only after 5 o clock",
+        "intent": "positive",
+        "entities": []
+      },
+      {
+        "text": "I can only before 4 o'clock",
+        "intent": "positive",
+        "entities": []
+      },
+      {
+        "text": "I cannot after 3 o'clock",
+        "intent": "negative",
+        "entities": []
+      },
+      {
+        "text": "I cannot before ten o clock",
+        "intent": "negative",
+        "entities": []
+      },
+      {
+        "text": "this week",
+        "intent": "positive",
+        "entities": []
+      },
+      {
+        "text": "I cannot before ten o'clock",
+        "intent": "negative",
+        "entities": []
+      },
+      {
+        "text": "I am sorry, that is not the option",
+        "intent": "reject",
+        "entities": []
       }
     ]
   }
