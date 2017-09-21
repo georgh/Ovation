@@ -15,13 +15,9 @@ class TextIO:
         
 
     def waitForSentence(self):
-        if not self.file == sys.stdin or not os.isatty(0): #read from file or use pipe
-            line = self.readline()
-            if line:
-                print("\x1b[1;30;42m" + "USR:" + "\033[0m " + line, flush=True)
-        else:
-            print("\x1b[1;30;42m" + "USR:" + "\033[0m ", end='', flush=True)
-            line = self.readline()
+        line = self.readline()
+        if line:
+            print("\x1b[1;30;42m" + "USR:" + "\033[0m " + line, flush=True)
         return line
 
     def say(self,response):
