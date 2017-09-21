@@ -1,5 +1,6 @@
 {
   "pipeline": ["nlp_mitie", "tokenizer_mitie", "ner_mitie", "ner_synonyms", "intent_entity_featurizer_regex", "intent_featurizer_mitie", "intent_classifier_sklearn"],
   "path" : "./models",
+  "num_threads": 4,
   "data" : "./data/examples/rasa/testData.json"
 }
