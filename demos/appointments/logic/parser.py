@@ -4,19 +4,11 @@ from datetime import datetime, timedelta
 import parsedatetime as pdt  # $ pip install parsedatetime
 
 
-def convertStrToDatetime():
-      ##TODO
+def convertStrToDatetime(time_string):
       cal = pdt.Calendar()
-      now = datetime.now()
-      print("now: %s" % now)
-      for time_string in ["tomorrow at 6am", "next moday at noon",
-                          "2 min ago", "3 weeks ago", "1 month ago"]:
-          #print("%s:\t%s" % (time_string, cal.parseDT(time_string, now)[0]))
-          time_struct, parse_status = cal.parse(time_string)
-          print("%s:\t%s" % (time_string, datetime(*time_struct[:6])))
-
-      time_struct, parse_status = cal.parse("tomorrow")
-      datetime(*time_struct[:6])
+      time_struct, parse_status = cal.parse(time_string)
+      # print("%s:\t%s" % (time_string, datetime(*time_struct[:6])))
+      return datetime(*time_struct[:6])
 
 def timeToStr(hour, min):
 
@@ -64,7 +56,8 @@ def convertDatetimeToStr(date):
       if date.date() == datetime.today().date(): #is today
             hourdiff = date.hour - now.hour
             mindiff = date.min - now.min
-            return "today at {}. That's in {} hours and {} minutes".formate(timeToStr(date.hour, date.minute), hourdiff, mindiff)
+            return "today at {}. That's in {} hours and {} minutes".format(timeToStr(date.hour, date.minute), hourdiff,
+                                                                           mindiff)
 
       elif date.date() == tomorrow.date():
             return "tomorrow at {}".format(timeToStr(date.hour, date.minute))

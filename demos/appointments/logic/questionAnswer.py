@@ -3,7 +3,6 @@ import datetime
 import logic.database as db
 import logic.parser as parser
 
-
 """
 This class implements the logic of the QA for the bot aka it chooses
 a meaningful answer for the user based on the current slots available
@@ -11,7 +10,6 @@ and the last questions asked (so that we do not repeat them)
 """
 
 questions = []
-RETARDMODE = True
 
 def clear():
     global questions
@@ -43,7 +41,7 @@ def getLastProposedTimeslot():
 
 
 def nextQuestion():
-    if countFirstSlots() < 2 or RETARDMODE:
+    if countFirstSlots() < 2:
         return returnFirst()
 
     scores = db.queryScores()

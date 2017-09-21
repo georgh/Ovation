@@ -1,6 +1,7 @@
-import database as db
+import logic.database as db
 
-def apply(day=None, weekday=None, hour=None):
+
+def apply(day=None, weekday=None, hour=None, negative=False):
     """
     Valid calls:
     all 3 parameters take a single instance or a list of values
@@ -35,5 +36,8 @@ def apply(day=None, weekday=None, hour=None):
                         elif h == None or tsl.hour == h:
                             removeitems += [tsl]
 
-    print("Removing: {}".format(removeitems))
-    db.timeslots = [tsl for tsl in db.timeslots if tsl not in removeitems]
+    if negative:
+        db.timeslots = [tsl for tsl in db.timeslots if tsl in removeitems]
+    else:
+        print("Removing: {}".format(removeitems))
+        db.timeslots = [tsl for tsl in db.timeslots if tsl not in removeitems]
