@@ -25,8 +25,6 @@ def findMatches(regex, sentence, group=0):
     return result
 
         
-
-
 def findDates(sentence):
     result=[]
     for date in findMatches(date_regex, sentence):
@@ -39,12 +37,8 @@ def findDates(sentence):
     return result
 
 
-
-
-
 def findTime(sentence):
     result=[]
-    print("A")
     for time_regex in [time_regex1, time_regex2]:
         for time in findMatches(time_regex, sentence, 1):
             result.append(int(time))
