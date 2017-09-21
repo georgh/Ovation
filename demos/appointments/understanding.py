@@ -7,12 +7,13 @@ from logic.entityFilter import entityIsValid
 from simpleMatch import trivial_intent
 from extractDates import findDates, findTime
 
-from nltk.corpus import stopwords
-from nltk.tokenize import wordpunct_tokenize
+# from nltk.corpus import stopwords
+# from nltk.tokenize import wordpunct_tokenize
 
 
 USESPLIT = False
 
+print("Loading rasa config....")
 model_directory = './models/default'
 config = RasaNLUConfig("config/config_mitie.json")
 metadata = Metadata.load(model_directory)

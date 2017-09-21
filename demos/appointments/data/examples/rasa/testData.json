@@ -832,6 +832,26 @@
         "entities": []
       },
       {
+        "text": "in the morning",
+        "intent": "positive",
+        "entities": []
+      },
+      {
+        "text": "in the afternoon",
+        "intent": "positive",
+        "entities": []
+      },
+      {
+        "text": "i dont like before 1 o'clock",
+        "intent": "negative",
+        "entities": []
+      },
+      {
+        "text": "i dont like after nine o clock",
+        "intent": "negative",
+        "entities": []
+      },
+      {
         "text": "i am sorry, that is not the option",
         "intent": "reject",
         "entities": []
