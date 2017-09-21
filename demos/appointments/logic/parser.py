@@ -3,6 +3,9 @@ from datetime import datetime, timedelta
 
 import parsedatetime as pdt  # $ pip install parsedatetime
 
+FAKE_NOW = None
+
+
 def convertToRange(r):
       # timespans = ["morning", "afternoon", "evening", "night"]
       if r.lower() == "morning":
@@ -67,9 +70,16 @@ def dateToStr(day, month, weekdayNum):
       else:
             return "{} the {}th of {}".format(dayname, day, calendar.month_name[month])
 
+def getNow():
+      global FAKE_NOW
+      if FAKE_NOW:
+            return FAKE_NOW
+      else:
+            return datetime.now()
+      
 def convertDatetimeToStr(date):
-      now = datetime.now()
-      tomorrow = datetime.now() + timedelta(days=1)
+      now = getNow()
+      tomorrow = now + timedelta(days=1)
       if date.date() == datetime.today().date(): #is today
             hourdiff = date.hour - now.hour
             mindiff = date.minute - now.minute
