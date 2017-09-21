@@ -32,7 +32,7 @@ def listen_loop(io):
 
 def enter_test_mode():
     import logic.parser
-    logic.parser.FAKE_NOW = datetime(2017, 9, 21, 14)
+    logic.parser.FAKE_NOW = datetime(2017, 9, 22, 14)
 
 
 def main():
