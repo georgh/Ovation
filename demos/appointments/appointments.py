@@ -37,16 +37,26 @@ def main():
         type=str,
         default="",
         help="validate dialog")
+    parser.add_argument(
+        '--record',
+        action='store_true',
+        help="overwrite text case output",
+        default=False)
     args = parser.parse_args()
 
     if args.text:
         listen_loop(StdIO())
     elif args.dialog:
         with open(args.dialog) as infile:
-            validate = [line for line in open(args.dialog + ".output", "r").read().split("\n") if line]
+            output_file=args.dialog + ".output"
+            validate = not args.record and [line for line in open(output_file, "r").read().split("\n") if line] 
             backend = TextIO(infile)
             listen_loop(backend)
-            if validate != backend.history:
+            if args.record:
+                with open(output_file, "w+") as outfile:
+                    outfile.write("\n".join(backend.history))
+                    outfile.close()
+            elif validate != backend.history:
                 print("\x1b[1;30;41m" + "#!# ERROR: #!#" + "\033[0m")
                 # print("\x1b[1;37;41m" +"GOT:\n", "\n".join(backend.history) + "\033[0m", sep="")
                 # print("\x1b[1;37;41m" + "Expected:\n", "\n".join(validate) + "\033[0m", sep="")
