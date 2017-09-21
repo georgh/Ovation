@@ -33,7 +33,7 @@ def returnFirst():
 def getLastProposedTimeslot():
     for e in reversed(questions):
         if isinstance(e,datetime.datetime):
-            return parser.convertDatetimeToStr(e)
+            return e
     # No slots were proposed yet
     print("returning none")
     return None

@@ -72,7 +72,8 @@ def response(user_input):
     if intent  == Intent.AFFIRM:
         # TODO remove from the list of calendar the now boooked appointment
         return ResultObject(
-            "So the agent will call you" + str(qa.getLastProposedTimeslot()) + ". Thank you and goodbye.",
+            "So the agent will call you " + parser.convertDatetimeToStr(
+                qa.getLastProposedTimeslot()) + ". Thank you and goodbye.",
             SessionState.DONE)
 
     ###########################################################################
