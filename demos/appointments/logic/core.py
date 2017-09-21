@@ -66,7 +66,7 @@ def response(user_input):
             if entity.entity == 'timespan':
                 hour += [parser.convertToRange(entity.value)]
 
-        restriction.apply(day=day, hour=hour, negative= (intent == Intent.POSITIVE))
+        restriction.apply(day=day, hour=hour, negative=(intent == Intent.POSITIVE))
 
         # Return next question
         return ResultObject("Ok, let me see... " + qa.nextQuestion())
@@ -77,10 +77,13 @@ def response(user_input):
     if intent  == Intent.AFFIRM:
         # TODO remove from the list of calendar the now boooked appointment
         if len(db.timeslots) != 0:
-            return ResultObject(
-                "So the agent will call you " + parser.convertDatetimeToStr(
-                    qa.getLastProposedTimeslot()) + ". Thank you and goodbye.",
-                SessionState.DONE)
+            sl = qa.getLastProposedTimeslot()
+            if sl == None:
+                return ResultObject("STUPID! I DID NOT GIVE YOU A DATE YET! ehhh ... Please repeat your input.", SessionState.CONTINUE)
+            else:
+                return ResultObject(
+                    "So the agent will call you " + parser.convertDatetimeToStr(sl) + ". Thank you and goodbye.",
+                    SessionState.DONE)
         else:
             return ResultObject(
                 "Thank you for your call. However, with the current schedule we " +

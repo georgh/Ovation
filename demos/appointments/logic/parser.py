@@ -18,6 +18,8 @@ def convertToRange(r):
             return (20,24)
 
 def convertStrToDatetime(time_string):
+      if isinstance(time_string, datetime):
+            return time_string, True
       cal = pdt.Calendar()
       time_struct, parse_status = cal.parse(time_string)
       # print("%s:\t%s" % (time_string, datetime(*time_struct[:6])))
@@ -82,7 +84,7 @@ def convertDatetimeToStr(date):
             return "Error: Input is none"
       now = getNow()
       tomorrow = now + timedelta(days=1)
-      if date.date() == datetime.today().date(): #is today
+      if date.date() == now.date():  # is today
             hourdiff = date.hour - now.hour
             mindiff = date.minute - now.minute
             if hourdiff == 0:
