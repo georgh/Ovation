@@ -3,6 +3,7 @@
 from logic import core
 from logic import database as db
 from textio import TextIO
+from stdio import StdIO
 from understanding import understand
 
 
@@ -39,7 +40,7 @@ def main():
     args = parser.parse_args()
 
     if args.text:
-        listen_loop(TextIO())
+        listen_loop(StdIO())
     elif args.dialog:
         with open(args.dialog) as infile:
             validate = [line for line in open(args.dialog + ".output", "r").read().split("\n") if line]
