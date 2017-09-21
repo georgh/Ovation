@@ -2,7 +2,7 @@ from enum import Enum
 
 import logic.database as db
 import logic.questionAnswer as qa
-from logic import restriction, parser
+from logic import restriction, parser, entityFilter
 
 
 class Intent:
@@ -43,6 +43,8 @@ class ResultObject:
 def response(user_input):
     intent = user_input.intent
     print("Intent:", intent, user_input.entities)
+    user_input.entities = entityFilter.filterList(user_input.entities)
+    # print("(filtered)Intent:", intent, user_input.entities)
 
     ###########################################################################
     # MAKE_AN_APPOINTMENT
