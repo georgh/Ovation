@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from logic import core
+from logic import database as db
 from textio import TextIO
 
 
@@ -10,17 +11,27 @@ def listen_loop(io):
         if not lang:
             return
         print("Current language: ", lang)
-        io.say("Hello! This is Ovation studio: how can we help you?")
+        io.say("Hello this is Ovation studio: how can we help you?")
+        i = 0
         while True:
             sentence = io.waitForSentence()
             if not sentence:
                 break
-            # answer = core.response(core.UserInput(intent=core.Intent.AFFIRM, entities=""))
-            # answer = core.response(core.UserInput(intent=core.Intent.REJECT, entities=""))
-            # answer = core.response(core.UserInput(intent=core.Intent.GOODBYE, entities=""))
-            # answer = core.response(core.UserInput(intent=core.Intent.BLABLA, entities=""))
-            answer = core.response(core.UserInput(intent=core.Intent.GREET, entities=""))
-            # answer = core.response(core.UserInput(intent=core.Intent.MAKE_AN_APPOINTMENT, entities=""))
+
+                # answer = core.response(core.UserInput(intent=core.Intent.AFFIRM))
+                # answer = core.response(core.UserInput(intent=core.Intent.REJECT))
+                # answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
+                # answer = core.response(core.UserInput(intent=core.Intent.BLABLA))
+                # answer = core.response(core.UserInput(intent=core.Intent.GREET))
+
+            if i == 0:
+                answer = core.response(core.UserInput(intent=core.Intent.MAKE_AN_APPOINTMENT))
+            elif i == 1:
+                answer = core.response(core.UserInput(intent=core.Intent.GOODBYE))
+            elif i == 2:
+                pass
+
+            i += 1
             # answer = core.response(understand(sentence))
 
             io.say(answer.text)
@@ -29,6 +40,9 @@ def listen_loop(io):
 
 
 def main():
+    # Load the database
+    db.loadFromFile()
+
     import argparse
 
     parser = argparse.ArgumentParser()
