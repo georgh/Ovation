@@ -11,6 +11,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import wordpunct_tokenize
 
 
+USESPLIT = False
+
 model_directory = './models/default'
 config = RasaNLUConfig("config/config_mitie.json")
 metadata = Metadata.load(model_directory)
@@ -37,7 +39,7 @@ def countIntentions(sen):
       # . , : ;               
       #stopwords: 
       print(current)
-      return len(current), current
+      return current
 
 
 def understand(sentence):
@@ -47,7 +49,10 @@ def understand(sentence):
             return [UserInput(sentence, intent)]
 
       #check if the user has more then one intention:
-      c, splittedSentence = countIntentions(sentence)
+      if USESPLIT:
+            splittedSentence = countIntentions(sentence)
+      else:
+            splittedSentence = [sentence]
 
       resultingInputs = []
       for sen in splittedSentence:

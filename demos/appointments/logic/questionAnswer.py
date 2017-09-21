@@ -41,6 +41,9 @@ def getLastProposedTimeslot():
 
 
 def nextQuestion():
+    db.printCurrent()
+    scores = db.queryScores()
+    print("Scores " + str(scores))
     if countFirstSlots() < 1:
         return returnFirst()
 
@@ -53,6 +56,8 @@ def nextQuestion():
         scores[1] = 0
     if "weekInMonth" in questions:
         scores[2] = 0
+
+
 
     # Check if there are scores which are non-zero
     if sum(scores) != 0:

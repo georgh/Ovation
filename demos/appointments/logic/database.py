@@ -1,6 +1,7 @@
 import datetime as dt
 import numpy as np
 from datetime import datetime
+from . import parser
 
 calendar = []
 timeslots = []
@@ -80,3 +81,7 @@ def persist(chosenDate):
     loadFromFile()
     remove(chosenDate)
     saveToFile()
+
+def printCurrent():
+    for b in timeslots:
+        print("{} = {} -> weekday: {}".format(b, parser.convertDatetimeToStr(b), b.weekday()))
