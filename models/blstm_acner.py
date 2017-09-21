@@ -1,16 +1,13 @@
-import os
-import pickle
 import datetime
 
-import numpy as np
 import tensorflow as tf
-
-from utils import ops
-from tflearn.layers import dropout
-from tensorflow.contrib.tensorboard.plugins import projector
 from tensorflow.contrib.rnn import stack_bidirectional_rnn
+from tensorflow.contrib.tensorboard.plugins import projector
+from tflearn.layers import dropout
 
 from models.model import Model
+from utils import ops
+
 
 class BLSTMAcner(Model):
     """

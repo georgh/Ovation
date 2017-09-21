@@ -1,10 +1,11 @@
-import os
 import pickle
 
+import os
 import tensorflow as tf
+from abc import abstractmethod, ABC
+
 from utils import ops
 
-from abc import abstractmethod, ABC
 
 class Model(ABC):
     """

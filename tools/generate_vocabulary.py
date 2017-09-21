@@ -15,14 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import sys
-import json
-import spacy
 import argparse
 import collections
+import json
 import logging
+import sys
+
 import progressbar
+import spacy
 
 parser = argparse.ArgumentParser(
     description="Generate vocabulary for a tokenized text file.")
