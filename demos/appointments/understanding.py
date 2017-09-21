@@ -46,7 +46,6 @@ def understand(sentence):
       sentence = sentence.lower()
       intent, entities, isTrivial = trivial_intent(sentence)
       if isTrivial:
-
             return [UserInput(sentence, intent, [Entity(sentence, entity) for entity in entities])]
 
       #check if the user has more then one intention:
@@ -58,13 +57,16 @@ def understand(sentence):
       resultingInputs = []
       for sen in splittedSentence:
             result = interpreter.parse(sen)
+            print(result)
+            # for v in result['intent_ranking']:
+            #       print("    " +  str(v))
             extraDates = [Entity(date, 'date') for date in findDates(sen)]
             extraTimes = [Entity(hour, 'hours') for hour in findTime(sen)]
             entities = [Entity(item['value'], item['entity']) for item in result["entities"]]
             entities = [entity for entity in entities if entityIsValid(entity)]
-      if "intent" in result:
-            resultingInputs += [UserInput(sen, result["intent"]["name"],
-                     extraDates + extraTimes + entities)]
+            if "intent" in result:
+                  resultingInputs += [UserInput(sen, result["intent"]["name"],
+                           extraDates + extraTimes + entities)]
       # else:
       #   resultingInputs += [UserInput(sen, Intent.BLABLA)]
       if len(resultingInputs) == 0:
