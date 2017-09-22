@@ -99,7 +99,7 @@ def response(user_input):
         if len(db.timeslots) != 0:
             sl = qa.getLastProposedTimeslot()
             if sl == None:
-                return ResultObject("STUPID! I DID NOT GIVE YOU A DATE YET! ehhh ... Please repeat your input.", SessionState.CONTINUE)
+                return ResultObject("There must be a misunderstanding. How can I help you?", SessionState.CONTINUE)
             else:
                 return ResultObject(
                     "So the agent will call you " + parser.convertDatetimeToStr(sl) + ". Thank you and goodbye.",
