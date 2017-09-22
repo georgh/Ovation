@@ -58,7 +58,7 @@ def understand(sentence):
       resultingInputs = []
       for sen in splittedSentence:
             result = interpreter.parse(sen)
-            print(result)
+            # print(result)
             # for v in result['intent_ranking']:
             #       print("    " +  str(v))
             extraDates = [Entity(date, 'date') for date in findDates(sen)]

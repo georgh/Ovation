@@ -46,7 +46,7 @@ def getLastProposedTimeslot():
 def nextQuestion():
     db.printCurrent()
     scores = db.queryScores()
-    print("Scores " + str(scores))
+    # print("Scores " + str(scores))
     if countFirstSlots() < 1:
         return returnFirst()
 
