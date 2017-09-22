@@ -855,6 +855,11 @@
         "text": "i am sorry, that is not the option",
         "intent": "reject",
         "entities": []
+      },
+      {
+        "text": "This appointment doesn't suit me at all",
+        "intent": "reject",
+        "entities": []
       }
     ]
   }
