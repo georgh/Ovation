@@ -117,7 +117,7 @@ def response(user_input):
         # remove the last proposed slot from the list
         sl = qa.getLastProposedTimeslot()
         if sl == None:
-            return ResultObject("No? WTF?.", SessionState.CONTINUE)
+            return ResultObject("So, how could I help you?.", SessionState.CONTINUE)
         db.remove(sl)
         return ResultObject(qa.nextQuestion(), SessionState.CONTINUE)
 
