@@ -71,8 +71,12 @@ def response(user_input):
             for entity in user_input.entities:
                 # if not pravinee.filter(entity) and entity.entity == 'day':
                 if entity.entity == 'hours':
-                    before = "before" in entity.value[0] 
-                    after = "after" in entity.value[0] 
+                    if entity.value[0] == None:
+                        before = False
+                        after = False
+                    else:
+                        before = "before" in entity.value[0] 
+                        after = "after" in entity.value[0] 
 
                     if not before and not after:
                         hour += [entity.value[1]]
