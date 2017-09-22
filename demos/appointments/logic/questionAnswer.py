@@ -30,7 +30,7 @@ def returnFirst(howabout=False):
         if howabout:
             return "How about " + parser.convertDatetimeToStr(value) + "?"
         else:
-            return "Next free slot would be " + parser.convertDatetimeToStr(value)
+            return "The earliest available slot would be " + parser.convertDatetimeToStr(value)
 
 
 def getLastProposedTimeslot():

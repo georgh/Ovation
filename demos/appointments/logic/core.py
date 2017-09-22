@@ -62,34 +62,37 @@ def response(user_input):
     # POSITIVE OR NEGATIVE
     # User is proposing a positive restriction
     if intent == Intent.POSITIVE or intent == Intent.NEGATIVE:
-        # Apply restriction
-        day = []
-        hour = []
-        for entity in user_input.entities:
-            # if not pravinee.filter(entity) and entity.entity == 'day':
-            if entity.entity == 'hours':
-                before = "before" in entity.value[0] 
-                after = "after" in entity.value[0] 
+        if len(user_input.entities) == 0:
+            intent = Intent.REJECT
+        else:
+            # Apply restriction
+            day = []
+            hour = []
+            for entity in user_input.entities:
+                # if not pravinee.filter(entity) and entity.entity == 'day':
+                if entity.entity == 'hours':
+                    before = "before" in entity.value[0] 
+                    after = "after" in entity.value[0] 
 
-                if not before and not after:
-                    hour += [entity.value[1]]
-                elif before:
-                    hour += [(0, entity.value[1])]
-                else:
-                    hour += [(entity.value[1], 24)]
+                    if not before and not after:
+                        hour += [entity.value[1]]
+                    elif before:
+                        hour += [(0, entity.value[1])]
+                    else:
+                        hour += [(entity.value[1], 24)]
                 
-            else:
-                val, status = parser.convertStrToDatetime(entity.value)
-                if entity.entity == 'day' or entity.entity == 'date' and status:
+                else:
+                    val, status = parser.convertStrToDatetime(entity.value)
+                    if entity.entity == 'day' or entity.entity == 'date' and status:
                         day += [val.day]
 
-                if entity.entity == 'timespan':
-                    hour += [parser.convertToRange(entity.value)]
+                    if entity.entity == 'timespan':
+                        hour += [parser.convertToRange(entity.value)]
 
-        restriction.apply(day=day, hour=hour, negative=(intent == Intent.POSITIVE))
-
-        # Return next question
-        return ResultObject("Ok, let me see... " + qa.nextQuestion())
+            restriction.apply(day=day, hour=hour, negative=(intent == Intent.POSITIVE))
+                            
+            # Return next question
+            return ResultObject("Ok, let me see... " + qa.nextQuestion())
 
     ###########################################################################
     # AFFIRM

@@ -19,7 +19,7 @@ class Session:
         if userInput.intent == Intent.REPEAT and self.lastResponse:
             return ResultObject(self.repeatedResponse(self.lastResponse))
         elif userInput.intent == Intent.WAIT:
-            self.io.say("I'm waiting. Please say {} again, if you want to continue".format("Hello"))
+            self.io.say("I'm waiting.")
             self.io.check()
-            return ResultObject("I'm ready. I said: " + self.lastResponse, SessionState.CONTINUE)
+            return ResultObject("I'm still here. I said: " + self.lastResponse, SessionState.CONTINUE)
         return None
