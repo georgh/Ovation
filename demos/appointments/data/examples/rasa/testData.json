@@ -199,17 +199,38 @@
       {
         "text": "i need an appointment today",
         "intent": "appointment",
-        "entities": []
+        "entities": [
+          {
+            "start": 22,
+            "end": 27,
+            "value": "today",
+            "entity": "day"
+          }
+        ]
       },
       {
         "text": "can you schedule an appointment for today",
         "intent": "appointment",
-        "entities": []
+        "entities": [
+          {
+            "start": 36,
+            "end": 41,
+            "value": "today",
+            "entity": "day"
+          }
+        ]
       },
       {
         "text": "give me an appointment for today",
         "intent": "appointment",
-        "entities": []
+        "entities": [
+          {
+            "start": 27,
+            "end": 32,
+            "value": "today",
+            "entity": "day"
+          }
+        ]
       },
       {
         "text": "is an appointment slot  free",
@@ -802,7 +823,7 @@
         "entities": []
       },
       {
-        "text": "i can only after 5 o clock",
+        "text": "i can only after 5 o'clock",
         "intent": "positive",
         "entities": []
       },
@@ -834,12 +855,26 @@
       {
         "text": "in the morning",
         "intent": "positive",
-        "entities": []
+        "entities": [
+          {
+            "start": 7,
+            "end": 14,
+            "value": "morning",
+            "entity": "timespan"
+          }
+        ]
       },
       {
         "text": "in the afternoon",
         "intent": "positive",
-        "entities": []
+        "entities": [
+          {
+            "start": 7,
+            "end": 16,
+            "value": "afternoon",
+            "entity": "timespan"
+          }
+        ]
       },
       {
         "text": "i dont like before 1 o'clock",
@@ -860,6 +895,42 @@
         "text": "This appointment doesn't suit me at all",
         "intent": "reject",
         "entities": []
+      },
+      {
+        "text": "it is possible for tomorrow",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 19,
+            "end": 27,
+            "value": "tomorrow",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "can i have it for tomorrow?",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 18,
+            "end": 26,
+            "value": "tomorrow",
+            "entity": "day"
+          }
+        ]
+      },
+      {
+        "text": "can i have it for monday",
+        "intent": "positive",
+        "entities": [
+          {
+            "start": 18,
+            "end": 24,
+            "value": "monday",
+            "entity": "day"
+          }
+        ]
       }
     ]
   }

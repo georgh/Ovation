@@ -20,14 +20,17 @@ def countFirstSlots():
     return questions.count('first')
 
 
-def returnFirst():
+def returnFirst(howabout=False):
     value = db.getFirstFree()
     if value is None:
         return "There are no more free appointments slots left."
     else:
         questions.append("first")
         questions.append(value)
-        return "Next free slot would be " + parser.convertDatetimeToStr(value)
+        if howabout:
+            return "How about " + parser.convertDatetimeToStr(value) + "?"
+        else:
+            return "Next free slot would be " + parser.convertDatetimeToStr(value)
 
 
 def getLastProposedTimeslot():
@@ -75,4 +78,4 @@ def nextQuestion():
             questions.append("weekInMonth")
             return "Would you prefer this week or the next?"
 
-    return returnFirst()
+    return returnFirst(True)

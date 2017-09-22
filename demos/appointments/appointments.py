@@ -18,7 +18,7 @@ def listen_loop(io):
         print("-"*80)
         db.loadFromFile()
         qA.clear()
-        session.say("I am the ovation insurance chatbot: how can I help you?")
+        session.say("I am the ovation insurance bot: how can I help you?")
         session_state = core.SessionState.CONTINUE
         while session_state != core.SessionState.DONE:
             sentence = io.waitForSentence()
