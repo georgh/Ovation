@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $(dirname $0)/../dialogs
+a2ps -o ../docs/dialogs.ps -A fill *
+cd ../docs
+ps2pdf dialogs.ps
+
